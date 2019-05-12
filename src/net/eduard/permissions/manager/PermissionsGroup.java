@@ -17,7 +17,7 @@ public class PermissionsGroup implements  Storable {
 	
 	private String prefix;
 	private String suffix;
-	private boolean isDefault;
+	
 	
 	public List<String> getPermissions() {
 		return permissions;
@@ -59,10 +59,5 @@ public class PermissionsGroup implements  Storable {
 	public void setSuffix(String suffix) {
 		this.suffix = suffix;
 	}
-	public boolean isDefault() {
-		return isDefault;
-	}
-	public void setDefault(boolean isDefault) {
-		this.isDefault = isDefault;
-	}
+	
 }

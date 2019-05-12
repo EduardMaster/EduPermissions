@@ -2,44 +2,69 @@ package net.eduard.permissions.manager;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
+import net.eduard.api.lib.modules.FakePlayer;
+import net.eduard.api.lib.storage.Storable;
 import net.eduard.api.lib.storage.StorageAttributes;
 
-public class PermissionsPlayer {
-	
-	private UUID playerId;
-	
-	private String playerName;
+@StorageAttributes(indentificate = true)
+public class PermissionsPlayer implements Storable {
+
+	private FakePlayer player;
+	private transient PermissionsPlayerEditor editor;
+	private String prefix;
+	private String suffix;
 
 	private List<String> permissions = new ArrayList<>();
-	@StorageAttributes
+	@StorageAttributes(reference = true)
 	private List<PermissionsGroup> groups = new ArrayList<>();
-	
-	
+
 	public List<PermissionsGroup> getGroups() {
 		return groups;
 	}
+
 	public void setGroups(List<PermissionsGroup> groups) {
 		this.groups = groups;
 	}
+
 	public List<String> getPermissions() {
 		return permissions;
 	}
+
 	public void setPermissions(List<String> permissions) {
 		this.permissions = permissions;
 	}
-	public UUID getPlayerId() {
-		return playerId;
+
+	public FakePlayer getPlayer() {
+		return player;
 	}
-	public void setPlayerId(UUID playerId) {
-		this.playerId = playerId;
+
+	public void setPlayer(FakePlayer player) {
+		this.player = player;
 	}
-	public String getPlayerName() {
-		return playerName;
+
+	public String getSuffix() {
+		return suffix;
 	}
-	public void setPlayerName(String playerName) {
-		this.playerName = playerName;
+
+	public void setSuffix(String suffix) {
+		this.suffix = suffix;
 	}
-	
+
+	public String getPrefix() {
+		return prefix;
+	}
+
+	public void setPrefix(String prefix) {
+		this.prefix = prefix;
+	}
+
+	public PermissionsPlayerEditor getEditor() {
+		return editor;
+	}
+
+	public void setEditor(PermissionsPlayerEditor editor) {
+		this.editor = editor;
+	}
+
 }

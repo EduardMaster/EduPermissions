@@ -6,10 +6,10 @@ import org.bukkit.command.CommandSender;
 
 import net.eduard.api.lib.manager.CommandManager;
 
-public class TemplateCommand extends CommandManager {
+public class PermissionsCommand extends CommandManager {
 
-	public TemplateCommand() {
-		super("comando");
+	public PermissionsCommand() {
+		super("permissions");
 	}
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label,
