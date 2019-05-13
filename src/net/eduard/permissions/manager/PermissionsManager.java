@@ -29,10 +29,24 @@ public class PermissionsManager implements Storable {
 	public PermissionsPlayer getPlayer(Player player) {
 		return getPlayer(new FakePlayer(player));
 	}
+	public void removeGroup(PermissionsGroup group) {
+		for (PermissionsPlayer user : players) {
+			user.getGroups().remove(group);
+		}
+		groups.remove(group);
+	}
+	public PermissionsGroup getGroup(String name) {
+		for (PermissionsGroup group : groups) {
+			if (group.getName().equalsIgnoreCase(name)) {
+				return group;
+			}
+		}
+		return null;
+	}
 
-	public PermissionsGroup createGroup(String nome, String prefix, String suffix, String... permissoes) {
+	public PermissionsGroup createGroup(String name, String prefix, String suffix, String... permissoes) {
 		PermissionsGroup group = new PermissionsGroup();
-		group.setName(nome);
+		group.setName(name);
 		group.getPermissions().addAll(Arrays.asList(permissoes));
 		groups.add(group);
 		return group;
@@ -85,7 +99,7 @@ public class PermissionsManager implements Storable {
 	}
 
 	public PermissionsPlayer createPlayer(FakePlayer fakePlayer, String prefix, String suffix, String... permissions) {
-		
+
 		PermissionsPlayer player = new PermissionsPlayer();
 		player.setPlayer(fakePlayer);
 		player.getGroups().add(groupDefault);
@@ -94,7 +108,7 @@ public class PermissionsManager implements Storable {
 		player.setSuffix(suffix);
 		players.add(player);
 		return player;
-		
+
 	}
 
 }

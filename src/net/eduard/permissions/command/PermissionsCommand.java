@@ -1,21 +1,19 @@
 
 package net.eduard.permissions.command;
 
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-
 import net.eduard.api.lib.manager.CommandManager;
 
 public class PermissionsCommand extends CommandManager {
 
 	public PermissionsCommand() {
 		super("permissions");
+		
+		register(new PermissionsGroupCommand());
+		register(new PermissionsUserCommand());
+		register(new PermissionsHelpCommand());
+		register(new PermissionsSaveCommand());
+		register(new PermissionsReloadCommand());
 	}
-	@Override
-	public boolean onCommand(CommandSender sender, Command command, String label,
-		String[] args) {
 	
-		return true;
-	}
 
 }

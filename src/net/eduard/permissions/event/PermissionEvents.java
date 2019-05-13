@@ -27,12 +27,7 @@ public class PermissionEvents extends EventsManager {
 			
 		}
 		conta.setEditor(new PermissionsPlayerEditor(p,conta));
-		p.setOp(false);
-		if (p.hasPermission("beta.punheta.cu")) {
-			p.sendMessage("§aSim o beta é viado");
-		}else {
-			p.sendMessage("§cNão o beta é viado sim");
-		}
+	
 	}
 
 }
