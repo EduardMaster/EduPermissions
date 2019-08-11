@@ -27,7 +27,7 @@ public class EduPermissions extends EduardPlugin  {
 		StorageAPI.register(PermissionsGroup.class);
 		StorageAPI.register(PermissionsManager.class);
 		StorageAPI.register(PermissionsPlayer.class);
-		startAutoSave(5*60);
+		
 		reload();
 		new PermissionEvents().register(this);
 		new PermissionsCommand().register();
