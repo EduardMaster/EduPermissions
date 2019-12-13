@@ -15,7 +15,7 @@ public class PermissionsUserRemovePermissionCommand extends CommandManager {
 	public PermissionsUserRemovePermissionCommand() {
 		super("removepermission","removerpermissao");
 		setUsage("/permissions user removepermission <player> <permission>");
-		setDescription("Remover uma permiss„o para o jogador");
+		setDescription("Remover uma permiss√£o para o jogador");
 		}
 
 		@Override

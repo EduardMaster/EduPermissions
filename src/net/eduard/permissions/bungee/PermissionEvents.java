@@ -7,7 +7,7 @@ import net.md_5.bungee.api.event.PluginMessageEvent;
 import net.md_5.bungee.api.event.ServerConnectedEvent;
 import net.md_5.bungee.api.plugin.Listener;
 
-public class TemplateEvents implements Listener{
+public class PermissionEvents implements Listener{
 
 	@EventHandler
 	public void event(ServerConnectedEvent e) {
@@ -16,7 +16,7 @@ public class TemplateEvents implements Listener{
 	}
 	@EventHandler
 	public void onMessage(PluginMessageEvent e) {
-		if (Template.getPlugin().getDescription().getName().equals(e.getTag())) {
+		if (PermissionBungee.getPlugin().getDescription().getName().equals(e.getTag())) {
 
 			
 		}

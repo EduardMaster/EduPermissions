@@ -14,7 +14,7 @@ public class PermissionsGroupCreateCommand extends CommandManager {
 	public PermissionsGroupCreateCommand() {
 		super("create", "criar");
 		setUsage("/permissions group create <name>");
-		setDescription("Criar um grupo de permissıes");
+		setDescription("Criar um grupo de permiss√µes");
 	}
 
 	@Override

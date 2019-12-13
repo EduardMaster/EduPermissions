@@ -17,7 +17,7 @@ public class PermissionsUserHelpCommand extends CommandManager {
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		for (CommandManager sub : getParent().getCommands().values()) {
 			if (sender.hasPermission(sub.getPermission())) {
-				sender.sendMessage("ง3"+sub.getUsage() + " งb" + sub.getDescription());
+				sender.sendMessage("ยง3"+sub.getUsage() + " ยงb" + sub.getDescription());
 			}
 		}
 

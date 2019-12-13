@@ -15,7 +15,7 @@ public class PermissionsUserAddPermissionCommand extends CommandManager {
 	public PermissionsUserAddPermissionCommand() {
 		super("addpermission", "adicionarpermissao");
 		setUsage("/permissions user addpermission <player> <permission>");
-		setDescription("Adicionar uma permiss„o para o jogador");
+		setDescription("Adicionar uma permiss√£o para o jogador");
 	}
 
 	@Override

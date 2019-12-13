@@ -11,12 +11,12 @@ public class PermissionsReloadCommand extends CommandManager {
 
 	public PermissionsReloadCommand() {
 		super("reload","recarregar");
-		setDescription("Recarregar as permissões e grupos");
+		setDescription("Recarregar as permissÃµes e grupos");
 	}
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		EduPermissions.getInstance().reload();
-		sender.sendMessage("§aPlugin EduPermissions salvado com sucesso");
+		sender.sendMessage("Â§aPlugin EduPermissions salvado com sucesso");
 	return true;
 	}
 	

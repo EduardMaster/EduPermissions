@@ -14,7 +14,7 @@ public class PermissionsGroupDeleteCommand extends CommandManager {
 	public PermissionsGroupDeleteCommand() {
 		super("delete", "deletar");
 		setUsage("/permissions group delete <group>");
-		setDescription("Deletar um grupo de permissıes");
+		setDescription("Deletar um grupo de permiss√µes");
 	}
 
 	@Override

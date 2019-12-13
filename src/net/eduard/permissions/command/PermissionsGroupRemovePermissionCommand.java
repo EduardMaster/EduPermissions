@@ -14,7 +14,7 @@ public class PermissionsGroupRemovePermissionCommand extends CommandManager {
 	public PermissionsGroupRemovePermissionCommand() {
 		super("removepermission","removerpermissao");
 		setUsage("/permissions group addpermission <group> <permission>");
-		setDescription("Remover uma permiss„o do grupo");
+		setDescription("Remover uma permiss√£o do grupo");
 	}
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {

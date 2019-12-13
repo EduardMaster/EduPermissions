@@ -14,7 +14,7 @@ public class PermissionsGroupSetDefaultCommand extends CommandManager {
 	public PermissionsGroupSetDefaultCommand() {
 		super("setdefault","definirpadrao");
 		setUsage("/permissions group setdefault <group>");
-		setDescription("Definir o grupo padr„o do sistema");
+		setDescription("Definir o grupo padr√£o do sistema");
 	}
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {

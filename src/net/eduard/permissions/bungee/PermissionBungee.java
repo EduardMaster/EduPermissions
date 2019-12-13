@@ -1,24 +1,25 @@
 package net.eduard.permissions.bungee;
 
+import net.eduard.api.server.EduardBungeePlugin;
 import net.md_5.bungee.BungeeCord;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.api.plugin.Plugin;
 
-public class Template extends Plugin implements Listener {
+public class PermissionBungee extends EduardBungeePlugin implements Listener {
 	@Override
 	public void onEnable() {
 		plugin = this;
 		BungeeCord.getInstance().getPluginManager().registerListener(this,
-				new TemplateEvents());
+				new PermissionEvents());
 
 		BungeeCord.getInstance().getPluginManager().registerCommand(this,
-				new TemplateCommand());
+				new PermissionCommand());
 		BungeeCord.getInstance().getConsole()
 				.sendMessage(new TextComponent("Plugin ativado"));
 	}
-	private static Template plugin;
-	public static Template getPlugin() {
+	private static PermissionBungee plugin;
+	public static PermissionBungee getPlugin() {
 		return plugin;
 	}
 }

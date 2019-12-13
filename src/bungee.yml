@@ -1,6 +1,6 @@
-name: Template
-description: Plugin Template
-main: net.eduard.template.bungee.Template
+name: PermissionBungee
+description: Plugin PermissionBungee
+main: net.eduard.line.bungee.PermissionBungee
 version: 1.0
 author: Eduard
 authors: [Eduard]

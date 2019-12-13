@@ -7,7 +7,7 @@ public class PermissionsGroupCommand extends CommandManager {
 
 	public PermissionsGroupCommand() {
 		super("group","grupo");
-		setDescription("Controlar os grupos de permissıes");
+		setDescription("Controlar os grupos de permiss√µes");
 		register(new PermissionsGroupCreateCommand());
 		register(new PermissionsGroupDeleteCommand());
 		register(new PermissionsGroupRemovePermissionCommand());

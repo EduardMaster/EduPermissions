@@ -7,7 +7,7 @@ public class PermissionsUserCommand extends CommandManager {
 
 	public PermissionsUserCommand() {
 		super("user", "usuario");
-		setDescription("Controlar as permissıes e grupos dos jogadores");
+		setDescription("Controlar as permiss√µes e grupos dos jogadores");
 		register(new PermissionsUserAddGroupCommand());
 		register(new PermissionsUserRemoveGroupCommand());
 		register(new PermissionsUserAddPermissionCommand());
