@@ -12,7 +12,7 @@ import net.eduard.api.lib.storage.Storable;
 import net.eduard.api.lib.storage.StorageAttributes;
 
 /**
- * Controlador de Permissıes e Grupos dos Jogadores
+ * Controlador de Permiss√µes e Grupos dos Jogadores
  * 
  * @author Eduard-PC
  *

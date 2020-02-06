@@ -6,7 +6,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissibleBase;
 import org.bukkit.permissions.Permission;
 
-import net.eduard.api.lib.Mine;
+import net.eduard.api.lib.modules.Mine;
 import net.eduard.api.lib.modules.Extra;
 
 /**
@@ -32,7 +32,7 @@ public class PermissionsPlayerEditor extends PermissibleBase {
 	static {
 		try {
 			@SuppressWarnings("unused")
-			String a = Mine.classBukkitBukkit;
+
 			// Try to load the permissible field.
 			Field humanEntityPermissibleField;
 			try {

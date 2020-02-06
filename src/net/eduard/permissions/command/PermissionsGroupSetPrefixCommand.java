@@ -4,7 +4,7 @@ package net.eduard.permissions.command;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import net.eduard.api.lib.Mine;
+import net.eduard.api.lib.modules.Mine;
 import net.eduard.api.lib.manager.CommandManager;
 import net.eduard.permissions.EduPermissions;
 import net.eduard.permissions.manager.PermissionsGroup;
