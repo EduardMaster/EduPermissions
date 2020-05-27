@@ -3,9 +3,9 @@ package net.eduard.permissions.manager;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.eduard.api.lib.modules.FakePlayer;
+import net.eduard.api.lib.player.FakePlayer;
 import net.eduard.api.lib.storage.Storable;
-import net.eduard.api.lib.storage.StorageAttributes;
+import net.eduard.api.lib.modules.StorageAttributes;
 
 @StorageAttributes(indentificate = true)
 public class PermissionsPlayer implements Storable {

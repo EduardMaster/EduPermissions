@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import net.eduard.api.lib.storage.StorageAttributes;
+import net.eduard.api.lib.modules.StorageAttributes;
 import net.eduard.api.lib.storage.Storable;
 
 public class PermissionsGroup implements  Storable {

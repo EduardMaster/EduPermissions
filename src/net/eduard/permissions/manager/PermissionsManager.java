@@ -7,9 +7,9 @@ import java.util.Map;
 
 import org.bukkit.entity.Player;
 
-import net.eduard.api.lib.modules.FakePlayer;
+import net.eduard.api.lib.player.FakePlayer;
 import net.eduard.api.lib.storage.Storable;
-import net.eduard.api.lib.storage.StorageAttributes;
+import net.eduard.api.lib.modules.StorageAttributes;
 
 /**
  * Controlador de Permissões e Grupos dos Jogadores

@@ -5,7 +5,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import net.eduard.api.lib.manager.CommandManager;
-import net.eduard.api.lib.modules.FakePlayer;
+import net.eduard.api.lib.player.FakePlayer;
 import net.eduard.permissions.EduPermissions;
 import net.eduard.permissions.manager.PermissionsManager;
 import net.eduard.permissions.manager.PermissionsPlayer;
@@ -29,7 +29,7 @@ public class PermissionsUserAddPermissionCommand extends CommandManager {
 			String perm = args[3];
 			PermissionsPlayer user = manager.getPlayer(new FakePlayer(nome));
 
-//			PermissionsGroup group = manager.getGroup(nome);
+//			PermissionsGroup group = task.getGroup(nome);
 			if (user != null) {
 				user.getPermissions().add(perm);
 				sender.sendMessage(EduPermissions.getInstance().message("player-add-permission")

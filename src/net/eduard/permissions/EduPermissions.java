@@ -4,7 +4,7 @@ package net.eduard.permissions;
 import org.bukkit.entity.Player;
 
 import net.eduard.api.lib.modules.Mine;
-import net.eduard.api.lib.modules.FakePlayer;
+import net.eduard.api.lib.player.FakePlayer;
 import net.eduard.api.lib.storage.StorageAPI;
 import net.eduard.api.server.EduardPlugin;
 import net.eduard.permissions.command.PermissionsCommand;
@@ -33,13 +33,13 @@ public class EduPermissions extends EduardPlugin  {
 		new PermissionsCommand().register();
 	}
 	public void save() {
-		config.set("permissions", manager);
-		config.saveConfig();
+		getConfigs().set("permissions", manager);
+		getConfigs().saveConfig();
 	}
 	public void reload() {
-		config.reloadConfig();
-		if (config.contains("permissions")) {
-			manager = (PermissionsManager) config.get("permissions");
+		getConfigs().reloadConfig();
+		if (getConfigs().contains("permissions")) {
+			manager = (PermissionsManager) getConfigs().get("permissions");
 			StorageAPI.updateReferences();
 		}else {
 			configDefault();

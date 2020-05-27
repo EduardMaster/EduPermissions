@@ -7,7 +7,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 
 import net.eduard.api.lib.manager.EventsManager;
-import net.eduard.api.lib.modules.FakePlayer;
+import net.eduard.api.lib.player.FakePlayer;
 import net.eduard.permissions.EduPermissions;
 import net.eduard.permissions.manager.PermissionsPlayer;
 import net.eduard.permissions.manager.PermissionsPlayerEditor;
