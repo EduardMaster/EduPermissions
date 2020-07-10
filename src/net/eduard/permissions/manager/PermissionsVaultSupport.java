@@ -5,7 +5,7 @@ import net.milkbowl.vault.permission.Permission;
 
 public class PermissionsVaultSupport extends Permission{
 
-	@Override
+
 	public String[] getGroups() {
 		// TODO Auto-generated method stub
 		return null;

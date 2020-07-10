@@ -54,7 +54,6 @@ public class PermissionsPlayerEditor extends PermissibleBase {
 		} catch (ClassNotFoundException | NoSuchFieldException e) {
 			PERMISSIBLE_BASE_ATTACHMENTS_FIELD = null;
 			HUMAN_ENTITY_PERMISSIBLE_FIELD = null;
-//      
 		}
 	}
 
@@ -68,10 +67,10 @@ public class PermissionsPlayerEditor extends PermissibleBase {
 		try {
 			HUMAN_ENTITY_PERMISSIBLE_FIELD.set(player, this);
 		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}

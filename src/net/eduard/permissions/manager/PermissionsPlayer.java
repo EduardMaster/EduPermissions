@@ -3,12 +3,11 @@ package net.eduard.permissions.manager;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.eduard.api.lib.player.FakePlayer;
+import net.eduard.api.lib.game.FakePlayer;
 import net.eduard.api.lib.storage.Storable;
-import net.eduard.api.lib.modules.StorageAttributes;
 
-@StorageAttributes(indentificate = true)
-public class PermissionsPlayer implements Storable {
+@Storable.StorageAttributes(indentificate = true)
+public class PermissionsPlayer {
 
 	private FakePlayer player;
 	private transient PermissionsPlayerEditor editor;
@@ -16,7 +15,7 @@ public class PermissionsPlayer implements Storable {
 	private String suffix;
 
 	private List<String> permissions = new ArrayList<>();
-	@StorageAttributes(reference = true)
+	@Storable.StorageAttributes(reference = true)
 	private List<PermissionsGroup> groups = new ArrayList<>();
 
 	public List<PermissionsGroup> getGroups() {

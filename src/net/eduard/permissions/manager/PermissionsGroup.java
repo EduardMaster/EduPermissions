@@ -1,17 +1,15 @@
 package net.eduard.permissions.manager;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import net.eduard.api.lib.modules.StorageAttributes;
 import net.eduard.api.lib.storage.Storable;
 
-public class PermissionsGroup implements  Storable {
+import java.util.ArrayList;
+import java.util.List;
+
+public class PermissionsGroup {
 
 	private String name;
 	
-	@StorageAttributes
+	@Storable.StorageAttributes
 	private List<PermissionsGroup> childrens = new ArrayList<>();
 	private List<String> permissions = new ArrayList<>();
 	
@@ -31,16 +29,7 @@ public class PermissionsGroup implements  Storable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	@Override
-	public Object restore(Map<String, Object> map) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public void store(Map<String, Object> map, Object object) {
-		// TODO Auto-generated method stub
-		
-	}
+
 	public List<PermissionsGroup> getChildrens() {
 		return childrens;
 	}

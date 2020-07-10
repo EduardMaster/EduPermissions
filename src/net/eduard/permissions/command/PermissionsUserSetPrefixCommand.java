@@ -6,7 +6,7 @@ import org.bukkit.command.CommandSender;
 
 import net.eduard.api.lib.modules.Mine;
 import net.eduard.api.lib.manager.CommandManager;
-import net.eduard.api.lib.player.FakePlayer;
+import net.eduard.api.lib.game.FakePlayer;
 import net.eduard.permissions.EduPermissions;
 import net.eduard.permissions.manager.PermissionsManager;
 import net.eduard.permissions.manager.PermissionsPlayer;

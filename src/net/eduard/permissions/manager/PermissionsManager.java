@@ -3,13 +3,11 @@ package net.eduard.permissions.manager;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 import org.bukkit.entity.Player;
 
-import net.eduard.api.lib.player.FakePlayer;
+import net.eduard.api.lib.game.FakePlayer;
 import net.eduard.api.lib.storage.Storable;
-import net.eduard.api.lib.modules.StorageAttributes;
 
 /**
  * Controlador de Permissões e Grupos dos Jogadores
@@ -17,9 +15,9 @@ import net.eduard.api.lib.modules.StorageAttributes;
  * @author Eduard-PC
  *
  */
-public class PermissionsManager implements Storable {
+public class PermissionsManager {
 
-	@StorageAttributes(reference = true)
+	@Storable.StorageAttributes(reference = true)
 	private PermissionsGroup groupDefault;
 
 	private List<PermissionsGroup> groups = new ArrayList<>();
@@ -62,17 +60,6 @@ public class PermissionsManager implements Storable {
 
 	}
 
-	@Override
-	public Object restore(Map<String, Object> map) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void store(Map<String, Object> map, Object object) {
-		// TODO Auto-generated method stub
-
-	}
 
 	public List<PermissionsPlayer> getPlayers() {
 		return players;
