@@ -151,7 +151,7 @@ public class SimplePermissionAttachment extends PermissionAttachment {
         // construct a node for the permission being set
         // we use the servers static context to *try* to ensure that the node will apply
 //        Node node = NodeFactory.builder(name)
-//                .setValue(value)
+//                .setFieldValue(value)
 //                .withExtraContext(this.permissible.getPlugin().getContextManager().getStaticContext())
 //                .build();
 //

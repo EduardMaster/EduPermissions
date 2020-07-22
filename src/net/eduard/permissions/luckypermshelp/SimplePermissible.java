@@ -38,7 +38,7 @@ public class SimplePermissible extends PermissibleBase {
 	        }
 
 //	        Tristate ts = this.user.getCachedData().getPermissionData(this.contextsSupplier.getContexts()).getPermissionValue(permission, CheckOrigin.PLATFORM_PERMISSION_CHECK);
-//	        return ts != Tristate.UNDEFINED ? ts.asBoolean() : Permission.DEFAULT_PERMISSION.getValue(isOp());
+//	        return ts != Tristate.UNDEFINED ? ts.asBoolean() : Permission.DEFAULT_PERMISSION.getFieldValue(isOp());
 	        return false;
 	    }
 	@Override
@@ -117,7 +117,7 @@ public class SimplePermissible extends PermissibleBase {
         }
 
 //        Tristate ts = this.user.getCachedData().getPermissionData(this.contextsSupplier.getContexts()).getPermissionValue(permission, CheckOrigin.PLATFORM_LOOKUP_CHECK);
-//        return ts != Tristate.UNDEFINED || Permission.DEFAULT_PERMISSION.getValue(isOp());
+//        return ts != Tristate.UNDEFINED || Permission.DEFAULT_PERMISSION.getFieldValue(isOp());
         return false;
     }
 
@@ -133,9 +133,9 @@ public class SimplePermissible extends PermissibleBase {
 //        }
 //
 //        if (!this.plugin.getConfiguration().get(ConfigKeys.APPLY_BUKKIT_DEFAULT_PERMISSIONS)) {
-//            return Permission.DEFAULT_PERMISSION.getValue(isOp());
+//            return Permission.DEFAULT_PERMISSION.getFieldValue(isOp());
 //        } else {
-//            return permission.getDefault().getValue(isOp());
+//            return permission.getDefault().getFieldValue(isOp());
 //        }
         return false;
     }
@@ -147,7 +147,7 @@ public class SimplePermissible extends PermissibleBase {
 ////        }
 ////
 ////        Tristate ts = this.user.getCachedData().getPermissionData(this.contextsSupplier.getContexts()).getPermissionValue(permission, CheckOrigin.PLATFORM_PERMISSION_CHECK);
-////        return ts != Tristate.UNDEFINED ? ts.asBoolean() : Permission.DEFAULT_PERMISSION.getValue(isOp());
+////        return ts != Tristate.UNDEFINED ? ts.asBoolean() : Permission.DEFAULT_PERMISSION.getFieldValue(isOp());
 //    	return false;
 //    }
 
@@ -163,9 +163,9 @@ public class SimplePermissible extends PermissibleBase {
 ////        }
 ////
 ////        if (!this.plugin.getConfiguration().get(ConfigKeys.APPLY_BUKKIT_DEFAULT_PERMISSIONS)) {
-////            return Permission.DEFAULT_PERMISSION.getValue(isOp());
+////            return Permission.DEFAULT_PERMISSION.getFieldValue(isOp());
 ////        } else {
-////            return permission.getDefault().getValue(isOp());
+////            return permission.getDefault().getFieldValue(isOp());
 ////        }
 //    }
 
@@ -188,7 +188,7 @@ public class SimplePermissible extends PermissibleBase {
     @Override
     public Set<PermissionAttachmentInfo> getEffectivePermissions() {
 //        return this.user.getCachedData().getPermissionData(this.contextsSupplier.getContexts()).getImmutableBacking().entrySet().stream()
-//                .map(entry -> new PermissionAttachmentInfo(this.player, entry.getKey(), null, entry.getValue()))
+//                .map(entry -> new PermissionAttachmentInfo(this.player, entry.getKey(), null, entry.getFieldValue()))
 //                .collect(ImmutableCollectors.toSet());
     	return null;
     }
