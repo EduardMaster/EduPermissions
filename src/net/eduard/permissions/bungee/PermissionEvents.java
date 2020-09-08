@@ -17,7 +17,7 @@ public class PermissionEvents implements Listener{
 	}
 	@EventHandler
 	public void onMessage(PluginMessageEvent e) {
-		if (PermissionBungee.getPlugin().getDescription().getName().equals(e.getTag())) {
+		if (PermissionBungee.getInstance().getDescription().getName().equals(e.getTag())) {
 
 			
 		}

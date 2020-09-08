@@ -81,7 +81,7 @@ public class SimplePermissionAttachment extends PermissionAttachment {
     public SimplePermissionAttachment(SimplePermissible permissible, PermissionAttachment source, Plugin owner) {
         super(owner, null);
         this.permissible = permissible;
-        this.owner = source.getPlugin();
+        this.owner = source.getInstance();
 
         // copy
         this.perms.putAll(source.getPermissions());
@@ -144,7 +144,7 @@ public class SimplePermissionAttachment extends PermissionAttachment {
     }
 
     private void setPermissionInternal(String name, boolean value) {
-//        if (!this.permissible.getPlugin().getConfiguration().get(ConfigKeys.APPLY_BUKKIT_ATTACHMENT_PERMISSIONS)) {
+//        if (!this.permissible.getInstance().getConfiguration().get(ConfigKeys.APPLY_BUKKIT_ATTACHMENT_PERMISSIONS)) {
 //            return;
 //        }
 
@@ -152,7 +152,7 @@ public class SimplePermissionAttachment extends PermissionAttachment {
         // we use the servers static context to *try* to ensure that the node will apply
 //        Node node = NodeFactory.builder(name)
 //                .setFieldValue(value)
-//                .withExtraContext(this.permissible.getPlugin().getContextManager().getStaticContext())
+//                .withExtraContext(this.permissible.getInstance().getContextManager().getStaticContext())
 //                .build();
 //
 //        // convert the constructed node to a transient node instance to refer back to this attachment
@@ -164,7 +164,7 @@ public class SimplePermissionAttachment extends PermissionAttachment {
     }
 
     private void unsetPermissionInternal(String name) {
-//        if (!this.permissible.getPlugin().getConfiguration().get(ConfigKeys.APPLY_BUKKIT_ATTACHMENT_PERMISSIONS)) {
+//        if (!this.permissible.getInstance().getConfiguration().get(ConfigKeys.APPLY_BUKKIT_ATTACHMENT_PERMISSIONS)) {
 //            return;
 //        }
 
@@ -252,7 +252,7 @@ public class SimplePermissionAttachment extends PermissionAttachment {
 
     @Override
     public Plugin getPlugin() {
-//        return this.owner != null ? this.owner : this.permissible.getPlugin().getBootstrap();
+//        return this.owner != null ? this.owner : this.permissible.getInstance().getBootstrap();
     	return null;
     }
 
