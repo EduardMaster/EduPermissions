@@ -5,18 +5,18 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import net.eduard.api.lib.manager.CommandManager;
-import net.eduard.api.lib.game.FakePlayer;
+import net.eduard.api.lib.modules.FakePlayer;
 import net.eduard.permissions.EduPermissions;
 import net.eduard.permissions.manager.PermissionsGroup;
 import net.eduard.permissions.manager.PermissionsManager;
 import net.eduard.permissions.manager.PermissionsPlayer;
 
-public class PermissionsUserAddGroupCommand extends CommandManager {
+public class PermissionsUserRemoveGroupCommand extends CommandManager {
 
-	public PermissionsUserAddGroupCommand() {
-		super("addgroup", "adicionargrupo");
-		setUsage("/permissions user addgroup <player> <group>");
-		setDescription("Adicionar um grupo para o jogador");
+	public PermissionsUserRemoveGroupCommand() {
+		super("removegroup", "removergrupo");
+		setUsage("/permissions user removegroup <player> <group>");
+		setDescription("Remover um grupo para o jogador");
 	}
 
 	@Override
@@ -35,9 +35,9 @@ public class PermissionsUserAddGroupCommand extends CommandManager {
 				sender.sendMessage(
 						EduPermissions.getInstance().message("group-not-exists").replace("$group", "" + grupo));
 			} else if (user != null) {
-				user.getGroups().add(group);
+				user.getGroups().remove(group);
 
-				sender.sendMessage(EduPermissions.getInstance().message("player-add-group")
+				sender.sendMessage(EduPermissions.getInstance().message("player-remove-group")
 						.replace("$player", "" + nome).replace("$group", grupo));
 			} else {
 				sender.sendMessage(

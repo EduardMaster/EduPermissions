@@ -5,18 +5,17 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import net.eduard.api.lib.manager.CommandManager;
-import net.eduard.api.lib.game.FakePlayer;
+import net.eduard.api.lib.modules.FakePlayer;
 import net.eduard.permissions.EduPermissions;
-import net.eduard.permissions.manager.PermissionsGroup;
 import net.eduard.permissions.manager.PermissionsManager;
 import net.eduard.permissions.manager.PermissionsPlayer;
 
-public class PermissionsUserRemoveGroupCommand extends CommandManager {
+public class PermissionsUserAddPermissionCommand extends CommandManager {
 
-	public PermissionsUserRemoveGroupCommand() {
-		super("removegroup", "removergrupo");
-		setUsage("/permissions user removegroup <player> <group>");
-		setDescription("Remover um grupo para o jogador");
+	public PermissionsUserAddPermissionCommand() {
+		super("addpermission", "adicionarpermissao");
+		setUsage("/permissions user addpermission <player> <permission>");
+		setDescription("Adicionar uma permissão para o jogador");
 	}
 
 	@Override
@@ -27,18 +26,14 @@ public class PermissionsUserRemoveGroupCommand extends CommandManager {
 			sendUsage(sender);
 		} else {
 			String nome = args[2];
-			String grupo = args[3];
+			String perm = args[3];
 			PermissionsPlayer user = manager.getPlayer(new FakePlayer(nome));
 
-			PermissionsGroup group = manager.getGroup(grupo);
-			if (group == null) {
-				sender.sendMessage(
-						EduPermissions.getInstance().message("group-not-exists").replace("$group", "" + grupo));
-			} else if (user != null) {
-				user.getGroups().remove(group);
-
-				sender.sendMessage(EduPermissions.getInstance().message("player-remove-group")
-						.replace("$player", "" + nome).replace("$group", grupo));
+//			PermissionsGroup group = task.getGroup(nome);
+			if (user != null) {
+				user.getPermissions().add(perm);
+				sender.sendMessage(EduPermissions.getInstance().message("player-add-permission")
+						.replace("$player", "" + nome).replace("$permission", perm));
 			} else {
 				sender.sendMessage(
 						EduPermissions.getInstance().message("player-not-exists").replace("$player", "" + nome));

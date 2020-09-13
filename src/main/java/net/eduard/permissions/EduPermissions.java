@@ -4,7 +4,7 @@ package net.eduard.permissions;
 import org.bukkit.entity.Player;
 
 import net.eduard.api.lib.modules.Mine;
-import net.eduard.api.lib.game.FakePlayer;
+import net.eduard.api.lib.modules.FakePlayer;
 import net.eduard.api.lib.storage.StorageAPI;
 import net.eduard.api.server.EduardPlugin;
 import net.eduard.permissions.command.PermissionsCommand;

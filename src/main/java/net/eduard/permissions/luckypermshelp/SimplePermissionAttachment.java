@@ -81,7 +81,7 @@ public class SimplePermissionAttachment extends PermissionAttachment {
     public SimplePermissionAttachment(SimplePermissible permissible, PermissionAttachment source, Plugin owner) {
         super(owner, null);
         this.permissible = permissible;
-        this.owner = source.getInstance();
+        this.owner = source.getPlugin();
 
         // copy
         this.perms.putAll(source.getPermissions());
@@ -130,7 +130,7 @@ public class SimplePermissionAttachment extends PermissionAttachment {
     }
 
     /**
-     * Hooks this attachment with the parent {@link User} instance.
+     * Hooks this attachment with the parent  instance.
      */
     public void hook() {
         this.hooked = true;

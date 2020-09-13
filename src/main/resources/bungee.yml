@@ -1,7 +1,7 @@
 name: PermissionBungee
 description: Plugin PermissionBungee
-main: net.eduard.line.bungee.PermissionBungee
-version: 1.0
+main: net.eduard.permisson.bungee.PermissionBungee
+version: ${project.version}
 author: Eduard
 authors: [Eduard]
 depend: [EduardAPI]

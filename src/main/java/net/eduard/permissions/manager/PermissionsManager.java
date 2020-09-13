@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.bukkit.entity.Player;
 
-import net.eduard.api.lib.game.FakePlayer;
+import net.eduard.api.lib.modules.FakePlayer;
 import net.eduard.api.lib.storage.Storable;
 
 /**

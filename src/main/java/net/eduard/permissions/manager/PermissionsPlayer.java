@@ -3,7 +3,7 @@ package net.eduard.permissions.manager;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.eduard.api.lib.game.FakePlayer;
+import net.eduard.api.lib.modules.FakePlayer;
 import net.eduard.api.lib.storage.Storable;
 
 @Storable.StorageAttributes(indentificate = true)

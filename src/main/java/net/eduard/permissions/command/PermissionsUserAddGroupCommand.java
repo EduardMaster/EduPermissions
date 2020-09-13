@@ -4,19 +4,19 @@ package net.eduard.permissions.command;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import net.eduard.api.lib.modules.Mine;
 import net.eduard.api.lib.manager.CommandManager;
-import net.eduard.api.lib.game.FakePlayer;
+import net.eduard.api.lib.modules.FakePlayer;
 import net.eduard.permissions.EduPermissions;
+import net.eduard.permissions.manager.PermissionsGroup;
 import net.eduard.permissions.manager.PermissionsManager;
 import net.eduard.permissions.manager.PermissionsPlayer;
 
-public class PermissionsUserSetPrefixCommand extends CommandManager {
+public class PermissionsUserAddGroupCommand extends CommandManager {
 
-	public PermissionsUserSetPrefixCommand() {
-		super("setprefix", "definirprefixo");
-		setUsage("/permissions user setprefix <player> <permission>");
-		setDescription("Definir o prefixo do jogador");
+	public PermissionsUserAddGroupCommand() {
+		super("addgroup", "adicionargrupo");
+		setUsage("/permissions user addgroup <player> <group>");
+		setDescription("Adicionar um grupo para o jogador");
 	}
 
 	@Override
@@ -27,14 +27,18 @@ public class PermissionsUserSetPrefixCommand extends CommandManager {
 			sendUsage(sender);
 		} else {
 			String nome = args[2];
-			String prefixo = Mine.toChatMessage(args[3]);
+			String grupo = args[3];
 			PermissionsPlayer user = manager.getPlayer(new FakePlayer(nome));
 
-//			PermissionsGroup group = task.getGroup(nome);
-			if (user != null) {
-				user.setPrefix(prefixo);
-				sender.sendMessage(EduPermissions.getInstance().message("player-set-prefix")
-						.replace("$player", "" + nome).replace("$prefix", prefixo));
+			PermissionsGroup group = manager.getGroup(grupo);
+			if (group == null) {
+				sender.sendMessage(
+						EduPermissions.getInstance().message("group-not-exists").replace("$group", "" + grupo));
+			} else if (user != null) {
+				user.getGroups().add(group);
+
+				sender.sendMessage(EduPermissions.getInstance().message("player-add-group")
+						.replace("$player", "" + nome).replace("$group", grupo));
 			} else {
 				sender.sendMessage(
 						EduPermissions.getInstance().message("player-not-exists").replace("$player", "" + nome));
