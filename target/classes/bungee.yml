@@ -1,0 +1,8 @@
+name: PermissionBungee
+description: Plugin PermissionBungee
+main: net.eduard.permisson.bungee.PermissionBungee
+version: 1.0-SNAPSHOT
+author: Eduard
+authors: [Eduard]
+depend: [EduardAPI]
+website: https://www.youtube.com/user/EduTutoriaisHD

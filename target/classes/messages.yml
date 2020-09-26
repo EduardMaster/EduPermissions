@@ -1,0 +1,18 @@
+
+group-already-exists: Este grupo ja existe $group
+group-not-exists: Este grupo nao existe $group
+group-created: Grupo criado com sucesso $group
+group-deleted: Grupo deletado com sucesso $group
+group-add-permission: Foi adicionado a permissao $permission no grupo $group
+group-remove-permission: Foi removido a permissao $permission no grupo $group
+group-set-default: Foi setado o grupo $group como padrao
+group-set-prefix: Foi setado o prefixo $prefix no grupo $group
+group-set-suffix: Foi setado o prefixo $suffix no grupo $group
+
+player-not-exists: Este usuario nao foi registrado no sistema $player
+player-add-permission: Foi adicionado a permissao $permission no jogador $player
+player-remove-permission: Foi removida a permissao $permission no jogador $player
+player-add-group: Foi adicionado o grupo $group no jogador $player
+player-remove-group: Foi removido o grupo $group no jogador $player
+player-set-prefix: Foi setado o prefixo para $prefix jogador $player
+player-set-suffix: Foi setado o sufixo para $suffix jogador $player
