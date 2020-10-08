@@ -29,7 +29,7 @@ class PermissionsGroupAddPermissionCommand :
             return
         }
         sender.sendMessage(
-            EduPermissions.instance.message("group-not-exists")
+            PermMessages.message("group-not-exists")
                 .replace("\$group", "" + nome)
         )
 
