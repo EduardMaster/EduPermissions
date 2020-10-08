@@ -1,7 +1,9 @@
 package net.eduard.permissions
 
 import net.eduard.api.server.EduardPlugin
+import net.eduard.permissions.api.PermissionsAPI
 import net.eduard.permissions.command.PermissionsCommand
+import net.eduard.permissions.core.PermMessages
 import net.eduard.permissions.core.PermissionsManager
 
 class EduPermissions : EduardPlugin() {
@@ -11,6 +13,8 @@ class EduPermissions : EduardPlugin() {
         instance = this
         isFree = true
         super.onEnable()
+        PermissionsAPI.plugin = this
+        PermMessages.messageConfig = messages
         reload()
         if (configs.getBoolean("enable-commands"))
             PermissionsCommand().register(this)

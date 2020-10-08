@@ -3,6 +3,8 @@ package net.eduard.permissions.command
 import net.eduard.api.lib.command.Command
 import net.eduard.api.lib.command.Sender
 import net.eduard.permissions.EduPermissions
+import net.eduard.permissions.api.PermissionsAPI
+import net.eduard.permissions.core.PermMessages
 
 class PermissionsGroupSetDefaultCommand :
     Command("setdefault", "definirpadrao") {
@@ -10,7 +12,7 @@ class PermissionsGroupSetDefaultCommand :
         sender: Sender,
         args: List<String>
     ) {
-        val manager = EduPermissions.instance.manager
+        val manager = PermissionsAPI.getInstance()
         if (args.size < 3) {
             sendUsage(sender)
             return
@@ -20,11 +22,13 @@ class PermissionsGroupSetDefaultCommand :
         if (group != null) {
             manager.setDefaultGroup(group)
             sender.sendMessage(
-                EduPermissions.instance.message("group-set-default").replace("\$group", "" + nome)
+                PermMessages.message("group-set-default")
+                    .replace("\$group", "" + nome)
             )
         } else {
             sender.sendMessage(
-                EduPermissions.instance.message("group-not-exists").replace("\$group", "" + nome)
+                PermMessages.message("group-not-exists")
+                    .replace("\$group", "" + nome)
             )
         }
 

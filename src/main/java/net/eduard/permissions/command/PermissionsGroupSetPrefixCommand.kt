@@ -2,13 +2,15 @@ package net.eduard.permissions.command
 
 import net.eduard.api.lib.command.Command
 import net.eduard.api.lib.command.Sender
+import net.eduard.api.lib.modules.Mine
 import net.eduard.permissions.EduPermissions
 import net.eduard.permissions.api.PermissionsAPI
 import net.eduard.permissions.core.PermMessages
 
-class PermissionsGroupRemovePermissionCommand :
+class PermissionsGroupSetPrefixCommand :
 
-    Command("removepermission", "removerpermissao") {
+    Command("setprefix", "definirprefixo") {
+
 
     override fun onCommand(sender: Sender, args: List<String>) {
         val manager = PermissionsAPI.getInstance()
@@ -17,27 +19,25 @@ class PermissionsGroupRemovePermissionCommand :
             return
         }
         val nome = args[2]
+        val prefixo = Mine.toChatMessage(args[3])
         val group = manager.getGroup(nome)
-        val perm = args[3]
         if (group != null) {
-            group.permissions.remove(perm)
+            group.prefix = prefixo
             sender.sendMessage(
-                PermMessages.message("group-remove-permission")
-                    .replace("\$group", "" + nome)
-                    .replace("\$permission", perm)
+                PermMessages.message("group-set-prefix").replace("\$group", "" + nome)
+                    .replace("\$prefix", prefixo)
             )
-            return
+        } else {
+            sender.sendMessage(
+                PermMessages.message("group-not-exists").replace("\$group", "" + nome)
+            )
         }
-        sender.sendMessage(
-            EduPermissions.instance.message("group-not-exists")
-                .replace("\$group", "" + nome)
-        )
-
+        //
     }
 
 
     init {
-        usage = "/permissions group addpermission <group> <permission>"
-        description = "Remover uma permissão do grupo"
+        usage = "/permissions group setprefix <group> <prefix>"
+        description = "Definir o prefixo do grupo"
     }
 }

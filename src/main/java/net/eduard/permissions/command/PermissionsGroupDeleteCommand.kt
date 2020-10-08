@@ -3,12 +3,14 @@ package net.eduard.permissions.command
 import net.eduard.api.lib.command.Command
 import net.eduard.api.lib.command.Sender
 import net.eduard.permissions.EduPermissions
+import net.eduard.permissions.api.PermissionsAPI
+import net.eduard.permissions.core.PermMessages
 
 class PermissionsGroupDeleteCommand :
     Command("delete", "deletar") {
 
     override fun onCommand(sender: Sender, args: List<String>) {
-        val manager = EduPermissions.instance.manager
+        val manager = PermissionsAPI.getInstance()
         if (args.size < 3) {
             sendUsage(sender)
             return
@@ -18,13 +20,13 @@ class PermissionsGroupDeleteCommand :
         if (group != null) {
             manager.removeGroup(group)
             sender.sendMessage(
-                EduPermissions.instance.message("group-deleted")
+                PermMessages.message("group-deleted")
                     .replace("\$group", "" + nome)
             )
             return
         }
         sender.sendMessage(
-            EduPermissions.instance
+           PermMessages
                 .message("group-not-exists")
                 .replace("\$group", name))
 
