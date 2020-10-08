@@ -7,8 +7,8 @@ import org.bukkit.command.CommandSender;
 import net.eduard.api.lib.modules.Mine;
 import net.eduard.api.lib.manager.CommandManager;
 import net.eduard.permissions.EduPermissions;
-import net.eduard.permissions.manager.PermissionsGroup;
-import net.eduard.permissions.manager.PermissionsManager;
+import net.eduard.permissions.core.PermissionsGroup;
+import net.eduard.permissions.core.PermissionsManager;
 
 public class PermissionsGroupSetSuffixCommand extends CommandManager {
 
@@ -29,7 +29,7 @@ public class PermissionsGroupSetSuffixCommand extends CommandManager {
 			String prefixo = Mine.toChatMessage(args[3]);
 			PermissionsGroup group = manager.getGroup(nome);
 			if (group != null) {
-				group.setPrefix(prefixo);
+				group.prefix = prefixo;
 				sender.sendMessage(EduPermissions.getInstance().message("group-set-suffix").replace("$group", "" + nome)
 						.replace("$suffix", prefixo));
 			} else {

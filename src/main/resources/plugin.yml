@@ -1,14 +1,9 @@
 name: EduPermissions
 description: Sistema de Permissoes
 main: net.eduard.permissions.EduPermissions
-version: 1.0
+version: ${project.version}
 author: Eduard
 authors: [Eduard]
 depend: [EduardAPI]
 website: https://www.youtube.com/user/EduTutoriaisHD
-commands:
-  permissions:
-    aliases: [perm]
-    permission: permissions.admin
-    usage: /<command> help
-    description: Comando Principal do sistema de permissoes
+

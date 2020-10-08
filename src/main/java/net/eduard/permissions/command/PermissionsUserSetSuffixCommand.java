@@ -1,15 +1,15 @@
 
 package net.eduard.permissions.command;
 
+import net.eduard.api.lib.modules.FakePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import net.eduard.api.lib.modules.Mine;
 import net.eduard.api.lib.manager.CommandManager;
-import net.eduard.api.lib.player.FakePlayer;
 import net.eduard.permissions.EduPermissions;
-import net.eduard.permissions.manager.PermissionsManager;
-import net.eduard.permissions.manager.PermissionsPlayer;
+import net.eduard.permissions.core.PermissionsManager;
+import net.eduard.permissions.core.PermissionsPlayer;
 
 public class PermissionsUserSetSuffixCommand extends CommandManager {
 
@@ -32,7 +32,7 @@ public class PermissionsUserSetSuffixCommand extends CommandManager {
 
 //			PermissionsGroup group = task.getGroup(nome);
 			if (user != null) {
-				user.setSuffix(suffixo);
+				user.suffix = suffixo;
 				sender.sendMessage(EduPermissions.getInstance().message("player-set-prefix")
 						.replace("$player", "" + nome).replace("$prefix", suffixo));
 			} else {

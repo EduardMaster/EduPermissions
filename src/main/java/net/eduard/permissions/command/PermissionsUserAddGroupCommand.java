@@ -7,9 +7,9 @@ import org.bukkit.command.CommandSender;
 import net.eduard.api.lib.manager.CommandManager;
 import net.eduard.api.lib.modules.FakePlayer;
 import net.eduard.permissions.EduPermissions;
-import net.eduard.permissions.manager.PermissionsGroup;
-import net.eduard.permissions.manager.PermissionsManager;
-import net.eduard.permissions.manager.PermissionsPlayer;
+import net.eduard.permissions.core.PermissionsGroup;
+import net.eduard.permissions.core.PermissionsManager;
+import net.eduard.permissions.core.PermissionsPlayer;
 
 public class PermissionsUserAddGroupCommand extends CommandManager {
 
@@ -35,7 +35,7 @@ public class PermissionsUserAddGroupCommand extends CommandManager {
 				sender.sendMessage(
 						EduPermissions.getInstance().message("group-not-exists").replace("$group", "" + grupo));
 			} else if (user != null) {
-				user.getGroups().add(group);
+				user.groups.add(group);
 
 				sender.sendMessage(EduPermissions.getInstance().message("player-add-group")
 						.replace("$player", "" + nome).replace("$group", grupo));

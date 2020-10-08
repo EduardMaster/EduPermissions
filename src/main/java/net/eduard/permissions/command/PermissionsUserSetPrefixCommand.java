@@ -8,8 +8,8 @@ import net.eduard.api.lib.modules.Mine;
 import net.eduard.api.lib.manager.CommandManager;
 import net.eduard.api.lib.modules.FakePlayer;
 import net.eduard.permissions.EduPermissions;
-import net.eduard.permissions.manager.PermissionsManager;
-import net.eduard.permissions.manager.PermissionsPlayer;
+import net.eduard.permissions.core.PermissionsManager;
+import net.eduard.permissions.core.PermissionsPlayer;
 
 public class PermissionsUserSetPrefixCommand extends CommandManager {
 
@@ -32,7 +32,7 @@ public class PermissionsUserSetPrefixCommand extends CommandManager {
 
 //			PermissionsGroup group = task.getGroup(nome);
 			if (user != null) {
-				user.setPrefix(prefixo);
+				user.prefix = prefixo;
 				sender.sendMessage(EduPermissions.getInstance().message("player-set-prefix")
 						.replace("$player", "" + nome).replace("$prefix", prefixo));
 			} else {

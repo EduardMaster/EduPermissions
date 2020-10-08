@@ -1,6 +1,6 @@
-name: PermissionBungee
-description: Plugin PermissionBungee
-main: net.eduard.permisson.bungee.PermissionBungee
+name: EduPermissions
+description: Sistema de Permissoes feita para BungeeCord
+main: net.eduard.permissons.EduBungeePermissions
 version: ${project.version}
 author: Eduard
 authors: [Eduard]

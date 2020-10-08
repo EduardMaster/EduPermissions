@@ -1,6 +1,7 @@
 # Compiled class file
 *.class
-
+bin/
+target/
 # Log file
 *.log
 
