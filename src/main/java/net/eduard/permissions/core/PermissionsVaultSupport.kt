@@ -1,6 +1,9 @@
 package net.eduard.permissions.core
 
+import net.eduard.api.lib.command.PlayerOffline
+import net.eduard.api.lib.modules.FakePlayer
 import net.eduard.permissions.EduPermissions
+import net.eduard.permissions.api.PermissionsAPI
 import net.milkbowl.vault.permission.Permission
 
 class PermissionsVaultSupport : Permission() {
@@ -16,58 +19,84 @@ class PermissionsVaultSupport : Permission() {
         playerName: String,
         playerWorld: String
     ): Array<String> {
-        return arrayOf()
+        return PermissionsAPI.getInstance().getPlayer(PlayerOffline(playerName)).groupsNames.toTypedArray()
     }
 
-    override fun getPrimaryGroup(arg0: String, arg1: String): String {
-        return ""
+    override fun getPrimaryGroup(playerName: String, worldName: String): String {
+
+        return PermissionsAPI.getInstance().getPlayer(PlayerOffline(playerName)).groups[0].name
     }
 
-    override fun groupAdd(arg0: String, arg1: String, arg2: String): Boolean {
-        return false
+    override fun groupAdd(groupName: String, worldName: String, permission: String): Boolean {
+
+        val group = PermissionsAPI.getInstance().getGroup(groupName)
+        if (group == null) return false
+
+
+        return group.permissions.add(permission)
     }
 
-    override fun groupHas(arg0: String, arg1: String, arg2: String): Boolean {
-        return false
+    override fun groupHas(groupName: String, worldName: String, permission: String): Boolean {
+        val group = PermissionsAPI.getInstance().getGroup(groupName)
+        if (group == null) return false
+        return group.permissions.contains(permission)
+
     }
 
-    override fun groupRemove(arg0: String, arg1: String, arg2: String): Boolean {
-        return false
+    override fun groupRemove(groupName: String, worldName: String, permission: String): Boolean {
+
+        val group = PermissionsAPI.getInstance().getGroup(groupName)
+        if (group == null) return false
+        group.permissions.remove(permission)
+
+        return true
     }
 
     override fun hasGroupSupport(): Boolean {
-        return false
+        return true
     }
 
     override fun hasSuperPermsCompat(): Boolean {
-        return false
+        return true
     }
 
     override fun isEnabled(): Boolean {
-        return false
+        return true
     }
 
-    override fun playerAdd(arg0: String, arg1: String, arg2: String): Boolean {
-        return false
+    override fun playerAdd(playerName: String, worldName: String, permission: String): Boolean {
+        val user = PermissionsAPI.getInstance().getPlayer(PlayerOffline(playerName))
+        return user.permissions.add(permission)
     }
 
-    override fun playerAddGroup(arg0: String, arg1: String, arg2: String): Boolean {
-        return false
+    override fun playerAddGroup(playerName: String, worldName: String, groupName: String): Boolean {
+        val user = PermissionsAPI.getInstance().getPlayer(PlayerOffline(playerName))
+        val group = PermissionsAPI.getInstance().getGroup(groupName)
+        if (group == null) return false
+        return user.groups.add(group)
     }
 
-    override fun playerHas(arg0: String, arg1: String, arg2: String): Boolean {
-        return false
+    override fun playerHas(playerName: String, worldName: String, permission: String): Boolean {
+        val user = PermissionsAPI.getInstance().getPlayer(PlayerOffline(playerName))
+        return user.permissions.contains(permission)
     }
 
-    override fun playerInGroup(arg0: String, arg1: String, arg2: String): Boolean {
-        return false
+    override fun playerInGroup(playerName: String, worldName: String, groupName: String): Boolean {
+        val user = PermissionsAPI.getInstance().getPlayer(PlayerOffline(playerName))
+        val group = PermissionsAPI.getInstance().getGroup(groupName)
+        if (group == null) return false
+        return user.groups.contains(group)
     }
 
-    override fun playerRemove(arg0: String, arg1: String, arg2: String): Boolean {
-        return false
+    override fun playerRemove(playerName: String, worldName: String, permission: String): Boolean {
+        val user = PermissionsAPI.getInstance().getPlayer(PlayerOffline(playerName))
+        return user.permissions.remove(permission)
     }
 
-    override fun playerRemoveGroup(arg0: String, arg1: String, arg2: String): Boolean {
-        return false
+    override fun playerRemoveGroup(playerName: String, worldName: String, groupName: String): Boolean {
+        val user = PermissionsAPI.getInstance().getPlayer(PlayerOffline(playerName))
+        user.groups.removeIf { it.name.equals(groupName, true) }
+        user.groupsNames.removeIf { it.equals(groupName, true) }
+        return true
     }
 }

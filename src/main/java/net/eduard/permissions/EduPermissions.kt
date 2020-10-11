@@ -1,10 +1,15 @@
 package net.eduard.permissions
 
+import net.eduard.api.lib.modules.VaultAPI
 import net.eduard.api.server.EduardPlugin
 import net.eduard.permissions.api.PermissionsAPI
 import net.eduard.permissions.command.PermissionsCommand
 import net.eduard.permissions.core.PermMessages
 import net.eduard.permissions.core.PermissionsManager
+import net.eduard.permissions.core.PermissionsVaultSupport
+import net.milkbowl.vault.permission.Permission
+import org.bukkit.Bukkit
+import org.bukkit.plugin.ServicePriority
 
 class EduPermissions : EduardPlugin() {
     lateinit var manager: PermissionsManager
@@ -16,8 +21,16 @@ class EduPermissions : EduardPlugin() {
         PermissionsAPI.plugin = this
         PermMessages.messageConfig = messages
         reload()
+        configs.add("enable-commands" ,true)
+        configs.saveConfig()
         if (configs.getBoolean("enable-commands"))
             PermissionsCommand().register(this)
+
+        Bukkit.getServicesManager().register(
+            Permission::class.java
+        , PermissionsVaultSupport(),this , ServicePriority.Normal)
+        VaultAPI.setupVault()
+
     }
 
     override fun save() {
@@ -32,6 +45,7 @@ class EduPermissions : EduardPlugin() {
         } else {
             configDefault()
         }
+        PermissionsAPI.manager = manager
     }
 
     override fun configDefault() {
@@ -39,6 +53,7 @@ class EduPermissions : EduardPlugin() {
         manager.setDefaultGroup(
             manager.createGroup("Padrao", "", "", "permissao.inicial")
         )
+
         save()
     }
 

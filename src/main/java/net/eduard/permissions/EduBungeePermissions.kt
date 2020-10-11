@@ -1,6 +1,7 @@
 package net.eduard.permissions
 
 import net.eduard.api.server.EduardBungeePlugin
+import net.eduard.permissions.api.PermissionsAPI
 import net.eduard.permissions.command.PermissionsCommand
 import net.eduard.permissions.core.PermissionsManager
 
@@ -12,6 +13,8 @@ class EduBungeePermissions : EduardBungeePlugin() {
         isFree = true
         super.onEnable()
         reload()
+        config.add("enable-commands",true)
+        config.saveConfig()
         if (configs.getBoolean("enable-commands"))
             PermissionsCommand().register(this)
     }
@@ -28,6 +31,7 @@ class EduBungeePermissions : EduardBungeePlugin() {
         } else {
             configDefault()
         }
+        PermissionsAPI.manager = manager
     }
 
     override fun configDefault() {

@@ -1,6 +1,6 @@
-name: PermissionBungee
-description: Plugin PermissionBungee
-main: net.eduard.permisson.bungee.PermissionBungee
+name: EduPermissions
+description: Sistema de Permissoes feita para BungeeCord
+main: net.eduard.permissons.EduBungeePermissions
 version: 1.0-SNAPSHOT
 author: Eduard
 authors: [Eduard]
