@@ -70,6 +70,7 @@ public class PermissionsPlayerEditor extends PermissibleBase {
     }
 
     public boolean hasPermission(Permission permission) {
+
         return hasPermission(permission.getName());
     }
 

@@ -13,5 +13,6 @@ class PermissionsGroupCommand : Command("group", "grupo") {
         register(PermissionsGroupSetSuffixCommand())
         register(PermissionsGroupSetDefaultCommand())
         register(PermissionsGroupHelpCommand())
+        register(PermissionsGroupListCommand())
     }
 }

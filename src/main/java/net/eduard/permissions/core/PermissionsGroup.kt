@@ -10,8 +10,5 @@ class PermissionsGroup {
     var prefix = ""
     var suffix = ""
 
-    fun save(){
-
-    }
 
 }

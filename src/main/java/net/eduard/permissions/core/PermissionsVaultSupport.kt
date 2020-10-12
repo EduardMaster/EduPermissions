@@ -1,7 +1,6 @@
 package net.eduard.permissions.core
 
 import net.eduard.api.lib.command.PlayerOffline
-import net.eduard.api.lib.modules.FakePlayer
 import net.eduard.permissions.EduPermissions
 import net.eduard.permissions.api.PermissionsAPI
 import net.milkbowl.vault.permission.Permission

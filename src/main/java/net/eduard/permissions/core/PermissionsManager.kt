@@ -1,9 +1,6 @@
 package net.eduard.permissions.core
 
 import net.eduard.api.lib.command.PlayerOffline
-import net.eduard.api.lib.modules.FakePlayer
-import net.eduard.api.lib.storage.Storable
-import org.bukkit.entity.Player
 import java.util.*
 
 /**
@@ -21,7 +18,7 @@ class PermissionsManager {
     @Transient
     var players = mutableMapOf<PlayerOffline, PermissionsPlayer>()
 
-    @Transient
+
     var groups = mutableMapOf<String, PermissionsGroup>()
 
 
