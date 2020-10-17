@@ -1,14 +1,15 @@
 package net.eduard.permissions.core
 
-import net.eduard.api.lib.config.Config
+import net.eduard.permissions.api.PermissionsAPI
 
 class PermMessages {
 
 
     companion object {
-        lateinit var messageConfig: Config
+
         fun message(key :String) : String{
-            return messageConfig.message(key)
+            return PermissionsAPI.plugin
+                .message(key)
         }
     }
 }

@@ -15,6 +15,7 @@ class PermissionsGroupHelpCommand :
 
 
     init {
+        usage = "/permissions group help"
         description = "Ver como usa os comandos"
     }
 }

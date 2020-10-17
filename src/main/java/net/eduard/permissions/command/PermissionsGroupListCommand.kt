@@ -6,6 +6,8 @@ import net.eduard.permissions.api.PermissionsAPI
 
 class PermissionsGroupListCommand :
     Command("list", "lista") {
+
+
     override fun onCommand(sender: Sender, args: List<String>) {
 
         sender.sendMessage("§aCargos existens: §f" +
@@ -16,6 +18,7 @@ class PermissionsGroupListCommand :
 
 
     init {
+        usage = "/permissions group list"
         description = "Ver como usa os comandos"
     }
 }

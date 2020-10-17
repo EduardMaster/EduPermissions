@@ -23,7 +23,7 @@ class EduPermissions : EduardPlugin() {
         isFree = true
         super.onEnable()
         PermissionsAPI.plugin = this
-        PermMessages.messageConfig = messages
+
         storageManager.
         configBases[PermissionsPlayer::class.java] =
             Config(this,"players/config.yml")

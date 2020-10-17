@@ -1,21 +1,16 @@
 package net.eduard.permissions.command
 
+import net.eduard.api.lib.command.Command
 import net.eduard.api.lib.command.PlayerOffline
-import net.eduard.api.lib.manager.CommandManager
+import net.eduard.api.lib.command.Sender
 import net.eduard.api.lib.modules.Mine
 import net.eduard.permissions.api.PermissionsAPI
 import net.eduard.permissions.core.PermMessages
-import org.bukkit.command.Command
-import org.bukkit.command.CommandSender
 
 class PermissionsUserSetSuffixCommand :
-    CommandManager("setsuffix", "definirsufixo") {
-    override fun onCommand(
-        sender: CommandSender,
-        command: Command,
-        label: String,
-        args: Array<String>
-    ): Boolean {
+    Command("setsuffix", "definirsufixo") {
+
+    override fun onCommand(sender: Sender, args: List<String>) {
         val manager = PermissionsAPI.getInstance()
         if (args.size < 4) {
             sendUsage(sender)
@@ -30,8 +25,8 @@ class PermissionsUserSetSuffixCommand :
             )
             //
         }
-        return true
     }
+
 
     init {
         usage = "/permissions user setsuffix <player> <permission>"

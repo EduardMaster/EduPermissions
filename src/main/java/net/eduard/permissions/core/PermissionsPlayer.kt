@@ -3,8 +3,8 @@ package net.eduard.permissions.core
 import net.eduard.api.lib.command.PlayerOffline
 import net.eduard.api.lib.database.StorageManager
 import net.eduard.api.lib.storage.Storable
-import net.eduard.permissions.EduPermissions
 import net.eduard.permissions.api.PermissionsAPI
+import java.util.*
 
 @Storable.StorageAttributes(indentificate = true)
 class PermissionsPlayer {
@@ -19,13 +19,14 @@ class PermissionsPlayer {
     var permissions = mutableListOf<String>()
 
     @Transient
-    var groups = mutableListOf<PermissionsGroup>()
-    var groupsNames = mutableListOf<String>()
+    var groups = LinkedList<PermissionsGroup>()
+    var groupsNames = LinkedList<String>()
 
     fun save() {
-         EduPermissions.instance.storageManager
-             .update(this)
+         PermissionsAPI.plugin.storageManager.update(this)
     }
+
+
 
 
     fun hasPermission(permissionName: String): Boolean {
