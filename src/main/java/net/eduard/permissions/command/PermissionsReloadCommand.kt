@@ -6,7 +6,7 @@ import net.eduard.permissions.api.PermissionsAPI
 
 class PermissionsReloadCommand : Command("reload", "recarregar") {
     override fun onCommand(sender: Sender, args: List<String>) {
-        PermissionsAPI.plugin.reload()
+        PermissionsAPI.instance.plugin.reload()
         sender.sendMessage("§aPlugin EduPermissions salvado com sucesso")
     }
 

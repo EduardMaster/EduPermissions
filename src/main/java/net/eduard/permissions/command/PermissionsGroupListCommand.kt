@@ -11,7 +11,7 @@ class PermissionsGroupListCommand :
     override fun onCommand(sender: Sender, args: List<String>) {
 
         sender.sendMessage("§aCargos existens: §f" +
-                PermissionsAPI.getInstance().groups.keys)
+                PermissionsAPI.instance.groups.keys)
 
 
     }

@@ -11,7 +11,7 @@ class PermissionsGroupAddPermissionCommand :
 
 
     override fun onCommand(sender: Sender, args: List<String>) {
-        val manager = PermissionsAPI.getInstance()
+        val manager = PermissionsAPI.instance
         if (args.size < 4) {
             sendUsage(sender)
             return
@@ -20,7 +20,7 @@ class PermissionsGroupAddPermissionCommand :
         val group = manager.getGroup(nome)
         val perm = args[3]
         if (group != null) {
-            group.permissions.add(perm)
+            group.addPermission(perm,!perm.startsWith("-"))
             sender.sendMessage(
                 PermMessages.message("group-add-permission")
                     .replace("\$group", "" + nome)

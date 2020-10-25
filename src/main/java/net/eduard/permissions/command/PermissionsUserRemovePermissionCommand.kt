@@ -12,7 +12,7 @@ class PermissionsUserRemovePermissionCommand :
         sender: Sender,
         args: List<String>
     ) {
-        val manager = PermissionsAPI.getInstance()
+        val manager = PermissionsAPI.instance
         if (args.size < 4) {
             sendUsage(sender)
         } else {

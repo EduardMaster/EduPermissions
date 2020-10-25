@@ -6,7 +6,7 @@ import net.eduard.permissions.api.PermissionsAPI
 
 class PermissionsSaveCommand : Command("save", "salvar") {
     override fun onCommand(sender: Sender, args: List<String>) {
-        PermissionsAPI.plugin.save()
+        PermissionsAPI.instance.plugin.save()
         sender.sendMessage("§aPlugin EduPermissions salvado com sucesso")
     }
 

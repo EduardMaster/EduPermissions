@@ -10,7 +10,7 @@ class PermissionsGroupCreateCommand :
     Command("create", "criar") {
 
     override fun onCommand(sender: Sender, args: List<String>) {
-        val manager = PermissionsAPI.getInstance()
+        val manager = PermissionsAPI.instance
         if (args.size < 3) {
             sendUsage(sender)
             return

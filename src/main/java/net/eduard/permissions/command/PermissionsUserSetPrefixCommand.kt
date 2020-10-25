@@ -13,7 +13,7 @@ class PermissionsUserSetPrefixCommand :
         sender: Sender,
         args: List<String>
     ) {
-        val manager = PermissionsAPI.getInstance()
+        val manager = PermissionsAPI.instance
         if (args.size < 4) {
             sendUsage(sender)
             return
@@ -22,10 +22,6 @@ class PermissionsUserSetPrefixCommand :
         val prefixo = Mine.toChatMessage(args[3])
         val user = manager.getPlayer(PlayerOffline(nome))
 
-//			PermissionsGroup group = task.getGroup(nome);
-        //sender.sendMessage(
-        //		EduPermissions.instance.message("player-not-exists")
-        //				.replace("$player", "" + nome));
         user.suffix = prefixo
         sender.sendMessage(
             PermMessages.message("player-set-prefix")

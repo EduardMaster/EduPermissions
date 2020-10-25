@@ -9,7 +9,7 @@ import net.eduard.permissions.core.PermMessages
 class PermissionsGroupSetSuffixCommand :
     Command("setsuffix", "definirsufixo") {
     override fun onCommand(sender: Sender, args: List<String>) {
-        val manager = PermissionsAPI.getInstance()
+        val manager = PermissionsAPI.instance
         if (args.size < 4) {
             sendUsage(sender)
             return

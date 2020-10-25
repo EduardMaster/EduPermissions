@@ -41,15 +41,15 @@ class PermissionsManager : PermissionsAPI{
         return groups[name.toLowerCase()]!!
     }
 
-    fun createGroup(
+    override fun createGroup(
         name: String,
         prefix: String,
         suffix: String,
-        vararg permissoes: String
+        vararg permissions: String
     ): PermissionsGroup {
         val group = PermissionsGroup()
         group.name = name
-        for (perm in permissoes){
+        for (perm in permissions){
             group.permissions[perm.toLowerCase()] = true
         }
 

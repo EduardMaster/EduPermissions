@@ -10,7 +10,7 @@ class PermissionsGroupDeleteCommand :
     Command("delete", "deletar") {
 
     override fun onCommand(sender: Sender, args: List<String>) {
-        val manager = PermissionsAPI.getInstance()
+        val manager = PermissionsAPI.instance
         if (args.size < 3) {
             sendUsage(sender)
             return
@@ -18,7 +18,7 @@ class PermissionsGroupDeleteCommand :
         val nome = args[2]
         val group = manager.getGroup(nome)
         if (group != null) {
-            manager.removeGroup(group)
+            manager.unregisterGroup(group)
             sender.sendMessage(
                 PermMessages.message("group-deleted")
                     .replace("\$group", "" + nome)
