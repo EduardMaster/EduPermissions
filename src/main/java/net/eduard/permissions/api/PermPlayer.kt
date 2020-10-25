@@ -7,16 +7,31 @@ interface PermPlayer {
     var player : PlayerOffline
     var prefix : String
     var suffix : String
-    fun getGroups() : List<PermGroup>
-    fun getPermissions() : List<String>
-    fun hasGroup(group : PermGroup)
+    val groups : MutableSet<out PermGroup>
+    val permissions : MutableMap<String,Boolean>
+    fun hasGroup(group : PermGroup): Boolean {
+        return groups.contains(group)
+    }
     fun addGroup( group : PermGroup)
-    fun removeGroup(group : PermGroup)
-    fun addPermission(permission : String)
-    fun removePermission(permission : String)
-    fun hasPermission(permission : String)
+
+    fun removeGroup(group : PermGroup){
+        groups.remove(group)
+    }
+    fun addPermission(permission : String, flag : Boolean){
+        permissions[permission.toLowerCase()] = flag
+    }
+    fun removePermission(permission : String){
+        permissions.remove(permission.toLowerCase())
+    }
+    fun hasPermission(permission : String): Boolean {
+        return permission.contains(permission.toLowerCase())
+    }
     fun delete()
-    fun reset()
+    fun reset(){
+        permissions.clear()
+        groups.clear()
+    }
+
 
 
 

@@ -54,10 +54,10 @@ public class PermissionsPlayerEditor extends PermissibleBase {
         }
     }
 
-    private PermissionsPlayer playerAccount;
+    private PermissionPlayer playerAccount;
     private Player player;
 
-    public PermissionsPlayerEditor(Player player, PermissionsPlayer playerAccount) {
+    public PermissionsPlayerEditor(Player player, PermissionPlayer playerAccount) {
         super(player);
         setPlayer(player);
         setPlayerAccount(playerAccount);
@@ -90,11 +90,11 @@ public class PermissionsPlayerEditor extends PermissibleBase {
         this.player = player;
     }
 
-    public PermissionsPlayer getPlayerAccount() {
+    public PermissionPlayer getPlayerAccount() {
         return playerAccount;
     }
 
-    public void setPlayerAccount(PermissionsPlayer playerAccount) {
+    public void setPlayerAccount(PermissionPlayer playerAccount) {
         this.playerAccount = playerAccount;
     }
 

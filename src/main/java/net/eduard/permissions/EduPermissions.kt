@@ -2,18 +2,16 @@ package net.eduard.permissions
 
 import net.eduard.api.lib.config.Config
 import net.eduard.api.lib.modules.VaultAPI
+import net.eduard.api.lib.storage.StorageAPI
 import net.eduard.api.server.EduardPlugin
 import net.eduard.permissions.api.PermissionsAPI
 import net.eduard.permissions.command.PermissionsCommand
-import net.eduard.permissions.core.PermMessages
 import net.eduard.permissions.core.PermissionsManager
-import net.eduard.permissions.core.PermissionsPlayer
+import net.eduard.permissions.core.PermissionPlayer
 import net.eduard.permissions.core.PermissionsVaultSupport
 import net.milkbowl.vault.permission.Permission
 import org.bukkit.Bukkit
-import org.bukkit.entity.ArmorStand
 import org.bukkit.plugin.ServicePriority
-import org.bukkit.util.EulerAngle
 
 class EduPermissions : EduardPlugin() {
     lateinit var manager: PermissionsManager
@@ -22,10 +20,10 @@ class EduPermissions : EduardPlugin() {
         instance = this
         isFree = true
         super.onEnable()
-        PermissionsAPI.plugin = this
+
 
         storageManager.
-        configBases[PermissionsPlayer::class.java] =
+        configBases[PermissionPlayer::class.java] =
             Config(this,"players/config.yml")
 
 
@@ -64,17 +62,14 @@ class EduPermissions : EduardPlugin() {
         } else {
             configDefault()
         }
-        for (user in storageManager.loadAll(PermissionsPlayer::class.java)){
+        for (user in storageManager.loadAll(PermissionPlayer::class.java)){
             manager.players[user.player] = user
         }
-        for (user in manager.players.values){
-                for (groupName in user.groupsNames){
-                    val group = manager.getGroup(groupName)?:continue
-                    user.groups.add(group)
-                }
-        }
+        StorageAPI.updateReferences()
+        PermissionsAPI.instance = manager
+        manager.plugin = this
 
-        PermissionsAPI.manager = manager
+       
     }
 
     override fun configDefault() {

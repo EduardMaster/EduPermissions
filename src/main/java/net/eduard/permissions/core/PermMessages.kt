@@ -8,7 +8,7 @@ class PermMessages {
     companion object {
 
         fun message(key :String) : String{
-            return PermissionsAPI.plugin
+            return PermissionsAPI.instance.plugin
                 .message(key)
         }
     }

@@ -1,11 +1,11 @@
 package net.eduard.permissions
 
+import net.eduard.api.lib.storage.StorageAPI
 import net.eduard.api.server.EduardBungeePlugin
 import net.eduard.permissions.api.PermissionsAPI
 import net.eduard.permissions.command.PermissionsCommand
-import net.eduard.permissions.core.PermMessages
 import net.eduard.permissions.core.PermissionsManager
-import net.eduard.permissions.core.PermissionsPlayer
+import net.eduard.permissions.core.PermissionPlayer
 import net.eduard.permissions.listener.PermissionsBungeeListener
 import net.md_5.bungee.api.ProxyServer
 
@@ -16,7 +16,7 @@ class EduBungeePermissions : EduardBungeePlugin() {
         instance = this
         isFree = true
         super.onEnable()
-        PermissionsAPI.plugin = this
+
 
 
         reload()
@@ -46,19 +46,16 @@ class EduBungeePermissions : EduardBungeePlugin() {
         storage.reloadConfig()
         if (configs.contains("permissions")) {
             manager = configs["permissions", PermissionsManager::class.java]
+            StorageAPI.updateReferences()
         } else {
             configDefault()
         }
-        for (user in storageManager.loadAll(PermissionsPlayer::class.java)){
+        for (user in storageManager.loadAll(PermissionPlayer::class.java)){
             manager.players[user.player] = user
         }
-        for (user in manager.players.values){
-            for (groupName in user.groupsNames){
-                val group = manager.getGroup(groupName)?:continue
-                user.groups.add(group)
-            }
-        }
-        PermissionsAPI.manager = manager
+        PermissionsAPI.instance = manager
+        manager.plugin = this
+
     }
 
     override fun configDefault() {

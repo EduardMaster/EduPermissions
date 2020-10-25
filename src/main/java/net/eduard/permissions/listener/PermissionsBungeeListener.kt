@@ -15,7 +15,7 @@ class PermissionsBungeeListener : Listener {
 
             val player = e.sender as ProxiedPlayer
             val offline = PlayerBungee(player).offline
-            val user = PermissionsAPI.getInstance()
+            val user = PermissionsAPI.instance
                 .getPlayer(offline)
             e.setHasPermission(user.hasPermission(e.permission))
         }

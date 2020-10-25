@@ -1,25 +1,33 @@
 package net.eduard.permissions.core
 
 import net.eduard.api.lib.command.PlayerOffline
-import java.util.*
+import net.eduard.api.lib.plugin.IPlugin
+import net.eduard.permissions.api.PermGroup
+import net.eduard.permissions.api.PermissionsAPI
 
 /**
  * Controlador de Permissões e Grupos dos Jogadores
  *
  * @author Eduard
  */
-class PermissionsManager {
+class PermissionsManager : PermissionsAPI{
 
     fun setDefaultGroup(group : PermissionsGroup) {
-        groupDefault = group.name
+        groupDefault = group
     }
-    var groupDefault = "Grupo"
+    override lateinit var groupDefault : PermGroup
 
     @Transient
-    var players = mutableMapOf<PlayerOffline, PermissionsPlayer>()
+    override var players = mutableMapOf<PlayerOffline, PermissionPlayer>()
+
+    override fun registerGroup(group: PermGroup) {
+        groups[group.name.toLowerCase()] = group as PermissionsGroup
+    }
+
+    override lateinit var plugin: IPlugin
 
 
-    var groups = mutableMapOf<String, PermissionsGroup>()
+    override var groups = mutableMapOf<String, PermissionsGroup>()
 
 
     fun removeGroup(group: PermissionsGroup) {
@@ -29,8 +37,8 @@ class PermissionsManager {
         groups.remove(group.toString().toLowerCase())
     }
 
-    fun getGroup(name: String): PermissionsGroup? {
-        return groups[name.toLowerCase()]
+    override fun getGroup(name: String): PermissionsGroup {
+        return groups[name.toLowerCase()]!!
     }
 
     fun createGroup(
@@ -41,20 +49,23 @@ class PermissionsManager {
     ): PermissionsGroup {
         val group = PermissionsGroup()
         group.name = name
-        group.permissions.addAll(Arrays.asList<String>(*permissoes))
+        for (perm in permissoes){
+            group.permissions[perm.toLowerCase()] = true
+        }
+
         groups[group.name.toLowerCase()] = group
         return group
     }
 
-    fun getPlayer(player: PlayerOffline): PermissionsPlayer {
+    override fun getPlayer(player: PlayerOffline): PermissionPlayer {
         return players.getOrDefault(player, newAccount(player))
     }
 
-    fun newAccount(offline: PlayerOffline): PermissionsPlayer {
-        val player = PermissionsPlayer()
+    fun newAccount(offline: PlayerOffline): PermissionPlayer {
+        val player = PermissionPlayer()
         player.player = offline
-        player.groupsNames.add(groupDefault)
-        players.put(offline, player)
+        player.groups.add(groupDefault as PermissionsGroup)
+        players[offline] = player
         return player
     }
 
