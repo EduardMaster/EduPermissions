@@ -19,7 +19,7 @@ class PermissionsGroupRemovePermissionCommand :
         val group = manager.getGroup(nome)
         val perm = args[3]
         if (group != null) {
-            group.permissions.remove(perm)
+            group.removePermission(perm)
             sender.sendMessage(
                 PermsMessages.message("group-remove-permission")
                     .replace("\$group", "" + nome)
@@ -36,7 +36,7 @@ class PermissionsGroupRemovePermissionCommand :
 
 
     init {
-        usage = "/permissions group addpermission <group> <permission>"
+        usage = "/permissions group removepermission <group> <permission>"
         description = "Remover uma permissão do grupo"
     }
 }

@@ -4,7 +4,6 @@ import net.eduard.api.lib.command.PlayerOffline
 import net.eduard.api.lib.plugin.IPlugin
 import net.eduard.permissions.api.PermGroup
 import net.eduard.permissions.api.PermissionsAPI
-import org.bukkit.Bukkit
 
 /**
  * Controlador de Permissões e Grupos dos Jogadores
@@ -31,18 +30,21 @@ class PermsManager : PermissionsAPI {
 
     override fun unregisterGroup(group: PermGroup) {
         for (user in players.values) {
-            user.groups.remove(group)
+            user.removeGroup(group)
         }
         groups.remove(group.name.toLowerCase())
+        group.delete()
     }
 
-    override fun getGroup(name: String): PermsGroup {
-        return groups[name.toLowerCase()]!!
+    override fun getGroup(groupName: String): PermsGroup? {
+        return groups[groupName.toLowerCase()]
     }
 
     override fun reload() {
         val sqlManager = PermissionsAPI.sqlManager
         if (sqlManager.hasConnection()) {
+            players.clear()
+            groups.clear()
             sqlManager.createTable(PermsGroup::class.java)
             sqlManager.createTable(PermsGroupPermission::class.java)
             sqlManager.createTable(PermsGroupChild::class.java)

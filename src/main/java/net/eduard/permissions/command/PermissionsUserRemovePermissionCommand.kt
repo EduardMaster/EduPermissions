@@ -20,7 +20,7 @@ class PermissionsUserRemovePermissionCommand :
             val perm = args[3]
             val user = manager.getPlayer(PlayerOffline(nome))
 
-            user.permissions.remove(perm)
+            user.removePermission(perm)
             sender.sendMessage(
                 PermsMessages.message("player-remove-permission")
                     .replace("\$player", "" + nome)

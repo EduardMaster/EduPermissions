@@ -29,7 +29,7 @@ class PermsVaultSupport : Permission() {
 
     override fun groupAdd(groupName: String, worldName: String, permission: String): Boolean {
 
-        val group = PermissionsAPI.instance.getGroup(groupName)
+        val group = PermissionsAPI.instance.getGroup(groupName)!!
 
 
          group.addPermission(permission,true)
@@ -37,7 +37,7 @@ class PermsVaultSupport : Permission() {
     }
 
     override fun groupHas(groupName: String, worldName: String, permission: String): Boolean {
-        val group = PermissionsAPI.instance.getGroup(groupName)
+        val group = PermissionsAPI.instance.getGroup(groupName)!!
         return group.permissions.contains(permission)
 
     }
@@ -71,7 +71,7 @@ class PermsVaultSupport : Permission() {
 
     override fun playerAddGroup(playerName: String, worldName: String, groupName: String): Boolean {
         val user = PermissionsAPI.instance.getPlayer(PlayerOffline(playerName))
-        val group = PermissionsAPI.instance.getGroup(groupName)
+        val group = PermissionsAPI.instance.getGroup(groupName)!!
         user.addGroup(group)
         return true
     }
@@ -83,7 +83,7 @@ class PermsVaultSupport : Permission() {
 
     override fun playerInGroup(playerName: String, worldName: String, groupName: String): Boolean {
         val user = PermissionsAPI.instance.getPlayer(PlayerOffline(playerName))
-        val group = PermissionsAPI.instance.getGroup(groupName)
+        val group = PermissionsAPI.instance.getGroup(groupName)!!
         return user.hasGroup(group)
     }
 
@@ -95,7 +95,7 @@ class PermsVaultSupport : Permission() {
 
     override fun playerRemoveGroup(playerName: String, worldName: String, groupName: String): Boolean {
         val user = PermissionsAPI.instance.getPlayer(PlayerOffline(playerName))
-        val group = PermissionsAPI.instance.getGroup(groupName)
+        val group = PermissionsAPI.instance.getGroup(groupName)!!
         user.removeGroup(group)
 
         return true

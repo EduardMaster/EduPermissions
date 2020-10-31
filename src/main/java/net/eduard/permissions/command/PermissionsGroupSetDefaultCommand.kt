@@ -18,11 +18,19 @@ class PermissionsGroupSetDefaultCommand :
         }
         val nome = args[2]
         val group = manager.getGroup(nome)
-        manager.changeDefaultGroup(group)
+
+        if (group!= null) {
+            manager.changeDefaultGroup(group)
+            sender.sendMessage(
+                PermsMessages.message("group-set-default")
+                    .replace("\$group", "" + nome)
+            )
+            return
+        }
         sender.sendMessage(
-            PermsMessages.message("group-set-default")
-                .replace("\$group", "" + nome)
-        )
+            PermsMessages
+                .message("group-not-exists")
+                .replace("\$group", name))
 
 
     }

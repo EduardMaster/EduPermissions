@@ -32,7 +32,7 @@ interface PermissionsAPI {
 
     fun unregisterAllGroups()
     fun getPlayer(playerName: String): PermPlayer
-    fun getGroup(groupgName : String) : PermGroup
+    fun getGroup(groupName : String) : PermGroup?
     fun getPlayer(player: PlayerOffline): PermPlayer
 
 

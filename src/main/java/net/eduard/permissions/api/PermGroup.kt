@@ -1,7 +1,9 @@
 package net.eduard.permissions.api
 
+import net.eduard.api.lib.database.api.DatabaseElement
 
-interface PermGroup {
+
+interface PermGroup: DatabaseElement {
     var name : String
     var prefix : String
     var suffix : String

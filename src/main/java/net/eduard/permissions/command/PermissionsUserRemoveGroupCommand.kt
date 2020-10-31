@@ -27,7 +27,7 @@ class PermissionsUserRemoveGroupCommand :
             )
             return
         }
-        user.groups.remove(group)
+        user.removeGroup(group)
         sender.sendMessage(
             PermsMessages.message("player-remove-group")
                 .replace("\$player", "" + nome)

@@ -14,7 +14,7 @@ class PermissionsUserHelpCommand : Command("help", "ajuda", "?") {
     }
 
     init {
-        usage = "/permissions group help"
+        usage = "/permissions user help"
         description = "Ver como usa os comandos"
     }
 }

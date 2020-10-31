@@ -1,8 +1,9 @@
 package net.eduard.permissions.api
 
 import net.eduard.api.lib.command.PlayerOffline
+import net.eduard.api.lib.database.api.DatabaseElement
 
-interface PermPlayer {
+interface PermPlayer : DatabaseElement {
 
     var player : PlayerOffline
     var prefix : String
@@ -15,7 +16,6 @@ interface PermPlayer {
     fun addPermission(permission : String, flag : Boolean)
     fun removePermission(permission : String)
     fun hasPermission(permission : String): Boolean
-    fun delete()
     fun reset()
 
 

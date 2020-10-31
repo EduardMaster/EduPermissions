@@ -93,6 +93,7 @@ class PermsPlayer : PermPlayer , DatabaseElement {
         perm.permission = permission
         perm.state = flag
         permissions[permission.toLowerCase()] = flag
+        playerPermissions.add(perm)
         perm.update()
     }
 

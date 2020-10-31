@@ -22,6 +22,7 @@ class PermissionsGroupSetPrefixCommand :
         val group = manager.getGroup(nome)
         if (group != null) {
             group.prefix = prefixo
+            group.update()
             sender.sendMessage(
                 PermsMessages.message("group-set-prefix").replace("\$group", "" + nome)
                     .replace("\$prefix", prefixo)

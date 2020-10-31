@@ -19,6 +19,7 @@ class PermissionsGroupSetSuffixCommand :
         val group = manager.getGroup(nome)
         if (group != null) {
             group.suffix = suffixo
+            group.update()
             sender.sendMessage(
                 PermsMessages.message("group-set-suffix")
                     .replace("\$group", "" + nome)

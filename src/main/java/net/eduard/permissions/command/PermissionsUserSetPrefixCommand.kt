@@ -23,6 +23,7 @@ class PermissionsUserSetPrefixCommand :
         val user = manager.getPlayer(PlayerOffline(nome))
 
         user.suffix = prefixo
+        user.update()
         sender.sendMessage(
             PermsMessages.message("player-set-prefix")
                 .replace("\$player", "" + nome).replace("\$prefix", prefixo)

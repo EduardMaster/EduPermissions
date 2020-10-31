@@ -50,7 +50,7 @@ class PermsGroup : PermGroup, DatabaseElement {
         permOfTheGroup.permission = perm
         permOfTheGroup.insert()
         permissions[perm.toLowerCase()] = true
-
+        groupPermissions.add(permOfTheGroup)
 
         return permOfTheGroup
     }
@@ -85,7 +85,7 @@ class PermsGroup : PermGroup, DatabaseElement {
     override fun addPermission(permission: String, flag: Boolean) {
         var perm = getPerm(permission)
         if (perm == null) {
-            perm=createPerm(permission)
+            perm = createPerm(permission)
         }
         perm.permission = permission
         perm.state = flag
@@ -97,9 +97,10 @@ class PermsGroup : PermGroup, DatabaseElement {
     override fun removePermission(permission: String) {
         val perm = getPerm(permission)
         if (perm != null) {
-            perm.delete()
-            permissions.remove(permission)
+
+            permissions.remove(permission.toLowerCase())
             groupPermissions.remove(perm)
+            perm.delete()
         }
 
     }

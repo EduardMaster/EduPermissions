@@ -19,6 +19,7 @@ class PermissionsUserSetSuffixCommand :
             val suffixo = Mine.toChatMessage(args[3])
             val user = manager.getPlayer(PlayerOffline(nome))
             user.suffix = suffixo
+            user.update()
             sender.sendMessage(
                 PermsMessages.message("player-set-prefix")
                     .replace("\$player", "" + nome).replace("\$prefix", suffixo)
