@@ -7,14 +7,10 @@ interface PermGroup {
     var suffix : String
     val children : MutableSet<out PermGroup>
     val permissions: MutableMap<String,Boolean>
-    fun addPermission(permission : String, flag : Boolean) {
-        permissions[permission.toLowerCase()] = flag
-    }
-    fun removePermission(permission : String){
-        permissions.remove(permission.toLowerCase())
-    }
-    fun hasPermission(permission : String): Boolean {
-        return permissions.containsKey(permission.toLowerCase())
-    }
+    fun addChild(child : PermGroup)
+    fun removeChild(child : PermGroup)
+    fun addPermission(permission : String, flag : Boolean)
+    fun removePermission(permission : String)
+    fun hasPermission(permission : String): Boolean
 
 }

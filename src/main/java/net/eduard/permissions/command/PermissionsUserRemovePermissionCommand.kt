@@ -4,7 +4,7 @@ import net.eduard.api.lib.command.Command
 import net.eduard.api.lib.command.PlayerOffline
 import net.eduard.api.lib.command.Sender
 import net.eduard.permissions.api.PermissionsAPI
-import net.eduard.permissions.core.PermMessages
+import net.eduard.permissions.core.PermsMessages
 
 class PermissionsUserRemovePermissionCommand :
     Command("removepermission", "removerpermissao") {
@@ -22,7 +22,7 @@ class PermissionsUserRemovePermissionCommand :
 
             user.permissions.remove(perm)
             sender.sendMessage(
-                PermMessages.message("player-remove-permission")
+                PermsMessages.message("player-remove-permission")
                     .replace("\$player", "" + nome)
                     .replace("\$permission", perm)
             )

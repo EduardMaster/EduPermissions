@@ -2,9 +2,8 @@ package net.eduard.permissions.command
 
 import net.eduard.api.lib.command.Command
 import net.eduard.api.lib.command.Sender
-import net.eduard.permissions.EduPermissions
 import net.eduard.permissions.api.PermissionsAPI
-import net.eduard.permissions.core.PermMessages
+import net.eduard.permissions.core.PermsMessages
 
 class PermissionsGroupDeleteCommand :
     Command("delete", "deletar") {
@@ -20,13 +19,13 @@ class PermissionsGroupDeleteCommand :
         if (group != null) {
             manager.unregisterGroup(group)
             sender.sendMessage(
-                PermMessages.message("group-deleted")
+                PermsMessages.message("group-deleted")
                     .replace("\$group", "" + nome)
             )
             return
         }
         sender.sendMessage(
-           PermMessages
+           PermsMessages
                 .message("group-not-exists")
                 .replace("\$group", name))
 

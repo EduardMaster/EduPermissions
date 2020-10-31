@@ -2,28 +2,27 @@ package net.eduard.permissions.api
 
 import net.eduard.api.lib.command.PlayerOffline
 import net.eduard.api.lib.plugin.IPlugin
-import net.eduard.permissions.core.PermissionsGroup
-import net.eduard.permissions.core.PermissionsManager
+import net.eduard.permissions.core.PermsManager
 
 interface PermissionsAPI {
     companion object {
-        @JvmStatic
-        lateinit var instance: PermissionsAPI
 
+
+        @JvmStatic
+        lateinit var instance: PermsManager
+        val sqlManager get() = instance.plugin.sqlManager
 
 
     }
 
 
     var plugin : IPlugin
-    var groupDefault : PermGroup
+    fun reload()
+    val groupDefault : PermGroup
     val groups: MutableMap<String,out PermGroup>
     val players: MutableMap<PlayerOffline,out PermPlayer>
     fun registerGroup(group: PermGroup)
-
-    fun unregisterGroup(group: PermGroup) {
-        groups.remove(group.name.toLowerCase())
-    }
+    fun unregisterGroup(group: PermGroup)
     fun createGroup(
         name: String,
         prefix: String,
@@ -31,24 +30,11 @@ interface PermissionsAPI {
         vararg permissions: String
     ): PermGroup
 
-    fun unregisterAllGroups() {
-        for (group in groups.values){
-            group.children.clear()
-        }
-        for (user in players.values){
-           user.groups.clear()
-        }
-        groups.clear()
-    }
-
-    fun getPlayer(playerName: String): PermPlayer {
-        return getPlayer(PlayerOffline(playerName))
-    }
-    fun getGroup(groupgName : String) : PermGroup{
-        return groups[groupgName.toLowerCase()] as PermGroup
-    }
-
+    fun unregisterAllGroups()
+    fun getPlayer(playerName: String): PermPlayer
+    fun getGroup(groupgName : String) : PermGroup
     fun getPlayer(player: PlayerOffline): PermPlayer
+
 
 
 }

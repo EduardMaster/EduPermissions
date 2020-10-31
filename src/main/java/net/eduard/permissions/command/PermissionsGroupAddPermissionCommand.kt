@@ -2,9 +2,9 @@ package net.eduard.permissions.command
 
 import net.eduard.api.lib.command.Command
 import net.eduard.api.lib.command.Sender
-import net.eduard.permissions.EduPermissions
+
 import net.eduard.permissions.api.PermissionsAPI
-import net.eduard.permissions.core.PermMessages
+import net.eduard.permissions.core.PermsMessages
 
 class PermissionsGroupAddPermissionCommand :
     Command("addpermission", "adicionarpermissao") {
@@ -22,14 +22,14 @@ class PermissionsGroupAddPermissionCommand :
         if (group != null) {
             group.addPermission(perm,!perm.startsWith("-"))
             sender.sendMessage(
-                PermMessages.message("group-add-permission")
+                PermsMessages.message("group-add-permission")
                     .replace("\$group", "" + nome)
                     .replace("\$permission", perm)
             )
             return
         }
         sender.sendMessage(
-            PermMessages.message("group-not-exists")
+            PermsMessages.message("group-not-exists")
                 .replace("\$group", "" + nome)
         )
 

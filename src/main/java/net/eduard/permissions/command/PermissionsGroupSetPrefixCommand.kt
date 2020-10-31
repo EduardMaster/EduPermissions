@@ -4,7 +4,7 @@ import net.eduard.api.lib.command.Command
 import net.eduard.api.lib.command.Sender
 import net.eduard.api.lib.modules.Mine
 import net.eduard.permissions.api.PermissionsAPI
-import net.eduard.permissions.core.PermMessages
+import net.eduard.permissions.core.PermsMessages
 
 class PermissionsGroupSetPrefixCommand :
 
@@ -23,12 +23,12 @@ class PermissionsGroupSetPrefixCommand :
         if (group != null) {
             group.prefix = prefixo
             sender.sendMessage(
-                PermMessages.message("group-set-prefix").replace("\$group", "" + nome)
+                PermsMessages.message("group-set-prefix").replace("\$group", "" + nome)
                     .replace("\$prefix", prefixo)
             )
         } else {
             sender.sendMessage(
-                PermMessages.message("group-not-exists").replace("\$group", "" + nome)
+                PermsMessages.message("group-not-exists").replace("\$group", "" + nome)
             )
         }
         //

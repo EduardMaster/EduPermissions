@@ -3,7 +3,7 @@ package net.eduard.permissions.command
 import net.eduard.api.lib.command.Command
 import net.eduard.api.lib.command.Sender
 import net.eduard.permissions.api.PermissionsAPI
-import net.eduard.permissions.core.PermMessages
+import net.eduard.permissions.core.PermsMessages
 
 class PermissionsGroupRemovePermissionCommand :
 
@@ -21,14 +21,14 @@ class PermissionsGroupRemovePermissionCommand :
         if (group != null) {
             group.permissions.remove(perm)
             sender.sendMessage(
-                PermMessages.message("group-remove-permission")
+                PermsMessages.message("group-remove-permission")
                     .replace("\$group", "" + nome)
                     .replace("\$permission", perm)
             )
             return
         }
         sender.sendMessage(
-            PermMessages.message("group-not-exists")
+            PermsMessages.message("group-not-exists")
                 .replace("\$group", "" + nome)
         )
 

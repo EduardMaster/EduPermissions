@@ -3,6 +3,7 @@ package net.eduard.permissions.command
 import net.eduard.api.lib.command.Command
 import net.eduard.api.lib.command.Sender
 
+
 class PermissionsGroupHelpCommand :
     Command("help", "ajuda", "?") {
     override fun onCommand(sender: Sender, args: List<String>) {

@@ -5,7 +5,7 @@ import net.eduard.api.lib.command.PlayerOffline
 import net.eduard.api.lib.command.Sender
 import net.eduard.api.lib.modules.Mine
 import net.eduard.permissions.api.PermissionsAPI
-import net.eduard.permissions.core.PermMessages
+import net.eduard.permissions.core.PermsMessages
 
 class PermissionsUserSetPrefixCommand :
     Command("setprefix", "definirprefixo") {
@@ -24,7 +24,7 @@ class PermissionsUserSetPrefixCommand :
 
         user.suffix = prefixo
         sender.sendMessage(
-            PermMessages.message("player-set-prefix")
+            PermsMessages.message("player-set-prefix")
                 .replace("\$player", "" + nome).replace("\$prefix", prefixo)
         )
     }

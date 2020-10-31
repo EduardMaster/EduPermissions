@@ -5,7 +5,7 @@ import net.eduard.permissions.EduPermissions
 import net.eduard.permissions.api.PermissionsAPI
 import net.milkbowl.vault.permission.Permission
 
-class PermissionsVaultSupport : Permission() {
+class PermsVaultSupport : Permission() {
     override fun getGroups(): Array<String> {
         return arrayOf()
     }

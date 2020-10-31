@@ -1,23 +1,22 @@
 package net.eduard.permissions
 
-import net.eduard.api.lib.storage.StorageAPI
 import net.eduard.api.server.EduardBungeePlugin
 import net.eduard.permissions.api.PermissionsAPI
 import net.eduard.permissions.command.PermissionsCommand
-import net.eduard.permissions.core.PermissionsManager
-import net.eduard.permissions.core.PermissionPlayer
+import net.eduard.permissions.core.PermsManager
 import net.eduard.permissions.listener.PermissionsBungeeListener
 import net.md_5.bungee.api.ProxyServer
 
 class EduBungeePermissions : EduardBungeePlugin() {
-    lateinit var manager: PermissionsManager
+    lateinit var manager: PermsManager
 
     override fun onEnable() {
         instance = this
-        isFree = true
+
         super.onEnable()
-
-
+        manager = PermsManager()
+        PermissionsAPI.instance = manager
+        manager.plugin = this
 
         reload()
         config.add("enable-commands",true)
@@ -31,36 +30,15 @@ class EduBungeePermissions : EduardBungeePlugin() {
     }
 
     override fun save() {
-        configs["permissions"] = manager
-        configs.saveConfig()
-        val it =manager.players.values.iterator()
-        while(it.hasNext()){
-            val user = it.next()
-            if (user.canRemove()){
-                manager.players.remove(user.player)
-            }else user.save()
-        }
+
     }
 
     override fun reload() {
-        storage.reloadConfig()
-        if (configs.contains("permissions")) {
-            manager = configs["permissions", PermissionsManager::class.java]
-            StorageAPI.updateReferences()
-        } else {
-            configDefault()
-        }
-        for (user in storageManager.loadAll(PermissionPlayer::class.java)){
-            manager.players[user.player] = user
-        }
-        PermissionsAPI.instance = manager
-        manager.plugin = this
-
+        PermissionsAPI.instance.reload()
     }
 
     override fun configDefault() {
-        manager = PermissionsManager()
-        manager.setDefaultGroup(
+        manager.groupDefault =(
             manager.createGroup("Padrao", "", "",
                 "permissao.inicial")
         )

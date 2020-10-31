@@ -2,14 +2,13 @@ package net.eduard.permissions.command
 
 import net.eduard.api.lib.command.Command
 import net.eduard.api.lib.command.Sender
-import net.eduard.permissions.EduPermissions
 import net.eduard.permissions.api.PermissionsAPI
-import net.eduard.permissions.core.PermMessages
+import net.eduard.permissions.core.PermsMessages
 
 class PermissionsGroupCreateCommand :
     Command("create", "criar") {
 
-    override fun onCommand(sender: Sender, args: List<String>) {
+    override fun onCommand(sender: Sender , args: List<String>) {
         val manager = PermissionsAPI.instance
         if (args.size < 3) {
             sendUsage(sender)
@@ -20,12 +19,12 @@ class PermissionsGroupCreateCommand :
         if (group == null) {
             group = manager.createGroup(nome, "", "")
             sender.sendMessage(
-                PermMessages.message("group-created")
+                PermsMessages.message("group-created")
                     .replace("\$group", "" + nome)
             )
         } else {
             sender.sendMessage(
-                PermMessages.message("group-already-exists")
+                PermsMessages.message("group-already-exists")
                     .replace("\$group", "" + nome)
             )
         }

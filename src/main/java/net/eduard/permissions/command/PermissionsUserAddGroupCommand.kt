@@ -4,7 +4,7 @@ import net.eduard.api.lib.command.Command
 import net.eduard.api.lib.command.PlayerOffline
 import net.eduard.api.lib.command.Sender
 import net.eduard.permissions.api.PermissionsAPI
-import net.eduard.permissions.core.PermMessages
+import net.eduard.permissions.core.PermsMessages
 
 class PermissionsUserAddGroupCommand :
     Command("addgroup", "adicionargrupo") {
@@ -21,14 +21,14 @@ class PermissionsUserAddGroupCommand :
         val group = manager.getGroup(grupo)
         if (group == null) {
             sender.sendMessage(
-                PermMessages.message("group-not-exists")
+                PermsMessages.message("group-not-exists")
                     .replace("\$group", "" + grupo)
             )
             return
         }
         user.addGroup(group)
         sender.sendMessage(
-            PermMessages.message("player-add-group")
+            PermsMessages.message("player-add-group")
                 .replace("\$player", "" + nome)
                 .replace("\$group", grupo)
         )

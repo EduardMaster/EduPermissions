@@ -4,7 +4,7 @@ import net.eduard.api.lib.command.Command
 import net.eduard.api.lib.command.PlayerOffline
 import net.eduard.api.lib.command.Sender
 import net.eduard.permissions.api.PermissionsAPI
-import net.eduard.permissions.core.PermMessages
+import net.eduard.permissions.core.PermsMessages
 
 class PermissionsUserRemoveGroupCommand :
     Command("removegroup", "removergrupo") {
@@ -23,13 +23,13 @@ class PermissionsUserRemoveGroupCommand :
         val group = manager.getGroup(grupo)
         if (group == null) {
             sender.sendMessage(
-                PermMessages.message("group-not-exists").replace("\$group", "" + grupo)
+                PermsMessages.message("group-not-exists").replace("\$group", "" + grupo)
             )
             return
         }
         user.groups.remove(group)
         sender.sendMessage(
-            PermMessages.message("player-remove-group")
+            PermsMessages.message("player-remove-group")
                 .replace("\$player", "" + nome)
                 .replace("\$group", grupo))
 

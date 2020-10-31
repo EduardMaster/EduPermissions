@@ -13,7 +13,7 @@ import net.eduard.api.lib.modules.Extra;
  *
  * @author Eduard
  */
-public class PermissionsPlayerEditor extends PermissibleBase {
+public class PermsPlayerEditor extends PermissibleBase {
     /**
      * All permission checks made on standard Bukkit objects are effectively proxied
      * to a {@link PermissibleBase} object, held as a variable on the object.
@@ -54,10 +54,10 @@ public class PermissionsPlayerEditor extends PermissibleBase {
         }
     }
 
-    private PermissionPlayer playerAccount;
+    private PermsPlayer playerAccount;
     private Player player;
 
-    public PermissionsPlayerEditor(Player player, PermissionPlayer playerAccount) {
+    public PermsPlayerEditor(Player player, PermsPlayer playerAccount) {
         super(player);
         setPlayer(player);
         setPlayerAccount(playerAccount);
@@ -90,11 +90,11 @@ public class PermissionsPlayerEditor extends PermissibleBase {
         this.player = player;
     }
 
-    public PermissionPlayer getPlayerAccount() {
+    public PermsPlayer getPlayerAccount() {
         return playerAccount;
     }
 
-    public void setPlayerAccount(PermissionPlayer playerAccount) {
+    public void setPlayerAccount(PermsPlayer playerAccount) {
         this.playerAccount = playerAccount;
     }
 
