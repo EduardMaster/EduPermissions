@@ -1,11 +1,11 @@
 package net.eduard.permissions.api
 
-import net.eduard.api.lib.command.PlayerOffline
+import net.eduard.api.lib.hybrid.PlayerUser
 import net.eduard.api.lib.database.api.DatabaseElement
 
 interface PermPlayer : DatabaseElement {
 
-    var player : PlayerOffline
+    var player : PlayerUser
     var prefix : String
     var suffix : String
     val groups : MutableSet<out PermGroup>

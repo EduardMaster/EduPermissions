@@ -1,6 +1,6 @@
 package net.eduard.permissions.core
 
-import net.eduard.api.lib.command.PlayerOffline
+import net.eduard.api.lib.hybrid.PlayerUser
 import net.eduard.api.lib.database.SQLManager
 import net.eduard.api.lib.database.annotations.ColumnPrimary
 import net.eduard.api.lib.database.annotations.ColumnSize
@@ -19,7 +19,7 @@ class PermsPlayer : PermPlayer , DatabaseElement {
     @ColumnPrimary
     var id = 0
     @ColumnSize(16)
-    override var player = PlayerOffline("Eduard")
+    override var player = PlayerUser("Eduard")
     override var prefix = ""
     override var suffix = ""
     @Transient

@@ -1,7 +1,7 @@
 package net.eduard.permissions.command
 
 import net.eduard.api.lib.command.Command
-import net.eduard.api.lib.command.PlayerOffline
+import net.eduard.api.lib.hybrid.PlayerUser
 import net.eduard.api.lib.command.Sender
 import net.eduard.api.lib.modules.Mine
 import net.eduard.permissions.api.PermissionsAPI
@@ -20,7 +20,7 @@ class PermissionsUserSetPrefixCommand :
         }
         val nome = args[2]
         val prefixo = Mine.toChatMessage(args[3])
-        val user = manager.getPlayer(PlayerOffline(nome))
+        val user = manager.getPlayer(PlayerUser(nome))
 
         user.suffix = prefixo
         user.update()

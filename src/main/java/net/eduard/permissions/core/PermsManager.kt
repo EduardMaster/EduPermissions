@@ -1,6 +1,6 @@
 package net.eduard.permissions.core
 
-import net.eduard.api.lib.command.PlayerOffline
+import net.eduard.api.lib.hybrid.PlayerUser
 import net.eduard.api.lib.plugin.IPlugin
 import net.eduard.permissions.api.PermGroup
 import net.eduard.permissions.api.PermissionsAPI
@@ -20,7 +20,7 @@ class PermsManager : PermissionsAPI {
      fun changeDefaultGroup(group: PermsGroup){
        groupDefault = group
     }
-    override var players = mutableMapOf<PlayerOffline, PermsPlayer>()
+    override var players = mutableMapOf<PlayerUser, PermsPlayer>()
     override var groups = mutableMapOf<String, PermsGroup>()
 
     override fun registerGroup(group: PermGroup) {
@@ -112,10 +112,10 @@ class PermsManager : PermissionsAPI {
     }
 
     override fun getPlayer(playerName: String): PermsPlayer {
-        return getPlayer(PlayerOffline(playerName))
+        return getPlayer(PlayerUser(playerName))
     }
 
-    override fun getPlayer(offline: PlayerOffline): PermsPlayer {
+    override fun getPlayer(offline: PlayerUser): PermsPlayer {
         var conta = players[offline]
         if (conta==null){
             conta = newAccount(offline)
@@ -123,7 +123,7 @@ class PermsManager : PermissionsAPI {
         return conta
     }
 
-    fun newAccount(offline: PlayerOffline): PermsPlayer {
+    fun newAccount(offline: PlayerUser): PermsPlayer {
         val player = PermsPlayer()
         player.player = offline
 
