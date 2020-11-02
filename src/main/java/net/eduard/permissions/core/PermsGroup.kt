@@ -12,6 +12,7 @@ import net.eduard.permissions.api.PermissionsAPI
 @TableName("perm_groups")
 class PermsGroup : PermGroup, DatabaseElement {
 
+
     @ColumnPrimary
     var id = 0
     @ColumnSize(100)
