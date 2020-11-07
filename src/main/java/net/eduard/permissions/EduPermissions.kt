@@ -2,8 +2,8 @@ package net.eduard.permissions
 
 import net.eduard.api.lib.command.PlayerBukkit
 import net.eduard.api.lib.command.offline
-import net.eduard.api.lib.modules.Mine
-import net.eduard.api.lib.modules.VaultAPI
+import lib.modules.Mine
+import lib.modules.VaultAPI
 import net.eduard.api.server.EduardPlugin
 import net.eduard.permissions.api.PermissionsAPI
 import net.eduard.permissions.command.PermissionsCommand
@@ -38,7 +38,7 @@ class EduPermissions : EduardPlugin() {
             Permission::class.java
             , PermsVaultSupport(), this, ServicePriority.Normal
         )
-        VaultAPI.setupVault()
+        lib.modules.VaultAPI.setupVault()
         PermissionsListener().register(this)
 
     }
@@ -63,7 +63,7 @@ class EduPermissions : EduardPlugin() {
         configs.add("default-group", manager.groups.values.first().name)
         configs.saveConfig()
 
-        for (player in Mine.getPlayers()){
+        for (player in lib.modules.Mine.getPlayers()){
             PermsPlayerEditor(player, manager.getPlayer(player.name) )
         }
     }
