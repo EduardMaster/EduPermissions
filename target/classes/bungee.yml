@@ -1,8 +1,0 @@
-name: EduPermissions
-description: Sistema de Permissoes feita para BungeeCord
-main: net.eduard.permissions.EduBungeePermissions
-version: 1.0-SNAPSHOT
-author: Eduard
-authors: [Eduard]
-depends: [EduardAPI]
-website: https://www.youtube.com/user/EduTutoriaisHD
