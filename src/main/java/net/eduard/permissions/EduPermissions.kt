@@ -63,7 +63,7 @@ class EduPermissions : EduardPlugin() {
         configs.add("default-group", manager.groups.values.first().name)
         configs.saveConfig()
 
-        for (player inMine.getPlayers()){
+        for (player in Mine.getPlayers()){
             PermsPlayerEditor(player, manager.getPlayer(player.name) )
         }
     }

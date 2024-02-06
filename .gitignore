@@ -1,8 +1,15 @@
+# Android Studio
+.idea
 
-*.class
+# Eclipse
 target/
+# Gradle
 .gradle/
+# Gradle Output
 build/
+
+# Binaries
+*.class
 *.jar
 *.war
 *.nar

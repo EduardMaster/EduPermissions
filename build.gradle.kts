@@ -1,6 +1,6 @@
 plugins {
     java
-    kotlin("jvm") version "1.4.21"
+    kotlin("jvm") version "1.7.20"
 }
 
 group = "net.eduard"
@@ -19,7 +19,7 @@ dependencies {
 }
 java.targetCompatibility = JavaVersion.VERSION_1_8
 tasks.withType<Jar>{
-    destinationDir = file("E:\\Tudo\\Minecraft - Server\\Servidor Teste\\plugins\\")
+   // destinationDirectory  = file("E:/Tudo/minecraft-server/server-Test/plugins/")
 }
 tasks {
     compileKotlin {
